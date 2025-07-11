@@ -1,18 +1,36 @@
 
+
 export interface IItem{
     id: number
     uuid: string
-    nome: string
-}
-export interface ICultura extends IItem{
-    resumo: string
-    paragrafos: string[]
+    title: string
+    image: string
+    description: string[]
 }
 
-export interface IMuinicipio extends IItem{
-    cultura: ICultura[]
+export interface ICulture extends IItem{
+    paragraph: string[]
+}
+
+export interface IHeritage extends IItem{
+    resumo: string
+    paragraph: string[]
+}
+
+export interface IGeography extends IItem{
+}
+
+export interface IMunicipality extends IItem{
+    culture:    IItem & { variants:ICulture[]}
+    heritage:   IHeritage[]
+    geography:  IItem & { cities:IGeography[]}
 }
 
 export interface IProvincia extends IItem{
-    municipio: IMuinicipio[]
+    municipality: IMunicipality[]
+}
+
+export interface UIPropsMunicipality{
+    province: IProvincia,
+    municipality:IMunicipality
 }
