@@ -13,17 +13,17 @@ export default function PageProvince(){
     const params = useParams()
     const [provincia, setProvincia]  =  useState<IProvincia| null>(null)
     const [municipality, setMunipio] = useState<IMunicipality| null>(null)
-    const [ loading, setLoading] = useState(true)
+    const [loading, setLoading] = useState(true)
     const tmpProvince = params.provincia;
     const tmpMunicipio = params.municipio;
 
     useEffect(()=>{
-        setProvincia(Provincias.find(p=>tmpProvince == p.title) || null)
+        setProvincia(Provincias.find(p=>(tmpProvince == p.title.toLowerCase() || tmpProvince == p.title )) || null)
     },[params])
 
     useEffect(()=>{
         if(provincia)
-            setMunipio(provincia.municipality.find(m=> tmpMunicipio == m.title) || null)
+            setMunipio(provincia.municipality.find(m=> tmpMunicipio == m.title.toLowerCase() || tmpMunicipio == m.title) || null)
         setLoading(false)
     },[provincia])
 
@@ -47,5 +47,3 @@ export default function PageProvince(){
         </>}
     </>)
 }
-git config --global user.email "erciliociu@gmail.com"
-  git config --global user.name "Ercilio Julio"

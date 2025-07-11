@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Globe } from 'react-feather';
 import Link from 'next/link';
+import { GiAngola } from 'react-icons/gi';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -38,30 +39,31 @@ const Header = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5, type: 'spring' }}
-      className={`fixed w-full z-50 transition-all duration-300 ${
+      className={`fixed w-full z-50 left-0 transition-all duration-300 ${
         isScrolled ? 'bg-gray-900 bg-opacity-90 backdrop-blur-md py-2 shadow-xl' : 'bg-transparent py-4'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link href="#home" scroll={false}>
+          <Link href="/" scroll={false}>
             <motion.div 
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="flex items-center space-x-2 cursor-pointer"
               onClick={() => setActiveLink('home')}
             >
-              <div className="w-10 h-10 rounded-full bg-gradient-to-r from-yellow-400 to-orange-500 flex items-center justify-center">
-                <Globe className="text-white" size={20} />
+              <div className="w-10 h-10 rounded-full bg-gradient-to-r from-yellow-500 to-red-500 flex items-center justify-center">
+                {/* <Globe/> */}
+                <GiAngola className="text-white" size={25}  />
               </div>
               <motion.span 
-                className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-orange-500"
+                className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-yellow-500 to-red-500"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.2 }}
               >
-                Angola Futurista
+                AngoTuri
               </motion.span>
             </motion.div>
           </Link>
@@ -86,7 +88,7 @@ const Header = () => {
                   {activeLink === link.href.substring(1) && (
                     <motion.span
                       layoutId="activeLink"
-                      className="absolute left-0 -bottom-1 w-full h-0.5 bg-yellow-400"
+                      className="absolute left-0 -bottom-1 w-full h-0.5 bg-black"
                       transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
                     />
                   )}
@@ -97,7 +99,7 @@ const Header = () => {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-4 py-2 bg-gradient-to-r from-yellow-400 to-orange-500 text-white text-sm font-medium rounded-full shadow-lg hover:shadow-xl transition-all"
+              className="px-4 py-2 bg-gradient-to-r from-red-500 to-black text-white text-sm font-medium rounded-full shadow-lg hover:shadow-xl transition-all"
             >
               Contacte-nos
             </motion.button>

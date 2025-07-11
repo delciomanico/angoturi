@@ -1,14 +1,16 @@
 "use client"
+
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 import { ArrowRight, MapPin } from 'react-feather';
 
 const HeroSection = () => {
   return (
-    <section id="home" className="relative h-screen flex items-center justify-center overflow-hidden">
+    <section id="home" className="relative h-screen flex items-center justify-center overflow-hidden bg-white">
       {/* Background com gradiente e imagem */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-gradient-to-b from-blue-900/80 to-indigo-900/90"></div>
-        <div className="absolute inset-0 bg-[url('/images/angola-futurista-bg.jpg')] bg-cover bg-center opacity-30"></div>
+        <div className="absolute inset-0"></div>
+        <div className="absolute inset-0 bg-[url('/images/iamge1.jpg')] bg-cover bg-center opacity-30"></div>
         
         {/* Elementos decorativos futuristas */}
         <motion.div 
@@ -59,17 +61,17 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6"
           >
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 via-orange-500 to-pink-500">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500">
               Descubra o Futuro
             </span><br />
-            <span className="text-white">de Angola</span>
+            <span className="text-gray-900">de Angola</span>
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-10"
+            className="text-lg md:text-xl text-stone-700 max-w-3xl mx-auto mb-10"
           >
             Explore a fusão única entre tradição ancestral e inovação tecnológica em uma experiência turística revolucionária.
           </motion.p>
@@ -80,14 +82,16 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.8 }}
             className="flex flex-col sm:flex-row justify-center gap-4"
           >
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 bg-gradient-to-r from-yellow-400 to-orange-500 text-black font-semibold rounded-full shadow-lg hover:shadow-xl transition-all flex items-center"
-            >
-              Começar Exploração
-              <ArrowRight className="ml-2" size={20} />
-            </motion.button>
+            <Link href={"provincias"} className='grid'>
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="px-8 py-4 bg-gradient-to-r from-yellow-400 to-orange-500 text-black font-semibold rounded-full shadow-lg hover:shadow-xl transition-all flex items-center"
+              >
+                Começar Exploração
+                <ArrowRight className="ml-2" size={20} />
+              </motion.button>
+            </Link>
           </motion.div>
         </div>
       </div>
