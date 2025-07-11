@@ -47,3 +47,5 @@ export default function PageProvince(){
         </>}
     </>)
 }
+git config --global user.email "erciliociu@gmail.com"
+  git config --global user.name "Ercilio Julio"
