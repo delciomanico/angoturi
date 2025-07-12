@@ -1,20 +1,20 @@
 "use client"
 
 import { motion } from 'framer-motion';
-import { Provincias } from "@/lib/placeholderData";
-import { IProvincia } from "@/lib/types/interfaqces/provincia";
+import { provinces } from "@/lib/placeholderData";
+import { Province } from "@/lib/types/interfaqces/";
 import Link from "next/link";
 import { useParams } from "next/navigation"
 import { useEffect, useState } from "react";
 
 export default function PageProvince(){
     const params = useParams()
-    const [provincia, setProvincia]  =  useState<IProvincia| null>(null)
+    const [provincia, setProvincia]  =  useState<Province| null>(null)
     const [loading, setLoading] = useState(true)
     const tmpProvince = params.provincia;
 
     useEffect(()=>{
-        setProvincia(Provincias.find(p=>tmpProvince == p.title.toLocaleLowerCase()) || null)
+        setProvincia(provinces.find(p=>tmpProvince == p.title.toLocaleLowerCase()) || null)
         setLoading(false)
     },[params])
 
@@ -31,7 +31,10 @@ export default function PageProvince(){
                             initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8, delay: 0.4 }}
-                            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6"
+                            className="
+                                text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6 px-8 py-4 text-black font-semibold rounded-full transition-all flex items-center
+                                "
+                                
                         >
                             {provincia.title}
                         </motion.h1>
@@ -48,9 +51,9 @@ export default function PageProvince(){
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.4 }}
-                        className="grid"
+                        className="flex flex-wrap gap-2 justify-center"
                     >
-                        {provincia.municipality.map((item, key)=>(
+                        {provincia.municipalities.map((item, key)=>(
                             <Link key={key} href={`/provincias/${provincia.title.toLowerCase()}/${item.title.toLowerCase()}`}>
                                 <motion.button
                                     whileHover={{ scale: 1.05 }}

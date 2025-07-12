@@ -1,9 +1,10 @@
 "use client"
-import { IMunicipality } from '@/lib/types/interfaqces/provincia';
+
 import { motion } from 'framer-motion';
 import { ArrowRight, MapPin } from 'react-feather';
+import {  Municipality } from '@/lib/types/interfaqces';
 
-const HeroSectionMunicipio = ({province, municipality}:{province:string, municipality:IMunicipality}) => {
+const HeroSectionMunicipio = ({province, municipality}:{province:string, municipality:Municipality}) => {
   return (
     <section id="home" className="relative h-screen flex items-center justify-center overflow-hidden">
       {/* Background com gradiente e imagem */}

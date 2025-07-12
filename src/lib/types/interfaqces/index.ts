@@ -1,57 +1,81 @@
-import { ReactNode } from "react"
+import { ReactNode } from "react";
 
-export interface Iitem_Simples{
-    titulo:      string
-    descriao:    (string | ReactNode)[]
+// Tipos reutilizáveis
+export interface DescriptionBlock {
+  title: string;
+  description: string | ReactNode | (string | ReactNode)[];
 }
 
-export interface Iitem extends Iitem_Simples{
-    id:         number,
-    uuid:       string
-    image:      string
+// Item base
+export interface ItemSimple {
+  title: string;
+  description: (string | ReactNode)[];
 }
 
-export interface ILocalizacao_Geografica{
-    latitude:   number
-    longitude:  number
-    precisao:   number
+export interface Item extends ItemSimple {
+  id: number;
+  uuid: string;
+  image: string;
 }
 
-export interface ICultura extends Iitem {
-    culturas:   Iitem[]
+export interface ItemComposite extends Item {
+  locations: Item[];
 }
 
-export interface IPAtrimonio extends Iitem {
-    patrimonios:    Iitem[]
+// Localização geográfica
+export interface Geolocation {
+  latitude: number;
+  longitude: number;
+  accuracy: number;
 }
 
-export interface IPAtrimonio_Cultura extends Iitem {
-    cultura:    ICultura[]
-    patrimonio: IPAtrimonio[]
+// Cultura
+export interface Culture extends Item {
+  cultures: Item[];
 }
 
-export interface ISubdivisoes_e_Bairros extends Iitem{
-    comunas: Iitem[]
-    bairros: Iitem[]
+// Patrimônio
+export interface Heritage extends Item {
+  heritages: ItemComposite[];
 }
 
-export interface IOrigem_nome extends Iitem{
-    interpretacoes: {
-        titulo:      string
-        descriao:    string
-    }[]
+// Cultura + Patrimônio
+export interface HeritageCulture extends Item {
+  culture: Culture[];
+  heritage: Heritage[];
 }
 
-export interface IMunicipio extends Iitem{
-    origem_Nome:            IOrigem_nome[]
-    localizacao:             ILocalizacao_Geografica
-    pontos_Turisticos:      Iitem[]
-    economia_E_Lazer:       Iitem[]
-    caracteristicas_gerais: Iitem_Simples[]
-    patrimonio_E_Cultura:   IPAtrimonio_Cultura
-    subdivisoes_E_Bairros:  ISubdivisoes_e_Bairros
+// Subdivisões
+export interface SubdivisionsAndNeighborhoods extends Item {
+  communes: Item[];
+  neighborhoods: Item[];
 }
 
-export interface IProvince extends Iitem{
-    municipios: IMunicipio[]
+// Origem do nome
+export interface NameOrigin extends Item {
+  interpretations: {
+    title: string;
+    description: string;
+  }[];
+}
+
+// Município
+export interface Municipality extends Item {
+  nameOrigins: NameOrigin[];
+  location: Geolocation;
+  touristAttractions: Item[];
+  economyAndLeisure: Item[];
+  generalCharacteristics: ItemSimple[];
+  heritageAndCulture: HeritageCulture;
+  subdivisionsAndNeighborhoods: SubdivisionsAndNeighborhoods;
+}
+
+// Província
+export interface Province extends Item {
+  municipalities: Municipality[];
+}
+
+export interface UIPropsMunicipality{
+    province: Province,
+    municipality:Municipality
 }

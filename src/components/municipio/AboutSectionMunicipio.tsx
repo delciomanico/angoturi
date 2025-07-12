@@ -6,8 +6,8 @@ import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import { motion } from 'framer-motion';
 import L from 'leaflet';
-import { IMunicipality, UIPropsMunicipality } from '@/lib/types/interfaqces/provincia';
 import { MapPin } from 'react-feather';
+import { UIPropsMunicipality } from '@/lib/types/interfaqces';
 
 // Fix for default marker icons in Next.js
 
@@ -36,22 +36,20 @@ const AboutSectioMunipality = ({province, municipality}:UIPropsMunicipality) => 
             <span className="text-sm font-medium text-white">{province.title}, Angola</span>
           </motion.div>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6"
-          ></motion.h1>
+          
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6"
           >
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 via-orange-500 to-pink-500">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 via-organe-500 to-red-500">
               {municipality.title}
             </span><br />
             </motion.h1>
+            <motion.div className='grid gap-2'>
+              {municipality.description.map((item,key)=>(<motion.p className='font-bold'>{item}</motion.p>))}
+            </motion.div>
         </div>
       </div>
   );

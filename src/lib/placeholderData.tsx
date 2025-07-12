@@ -1,314 +1,376 @@
-import { IProvince } from "./types/interfaqces";
-import { IProvincia } from "./types/interfaqces/provincia";
+import { Municipality, Province } from "./types/interfaqces";
+import { ingombota } from "./types/interfaqces/ingombotaMock";
 
-export const Provincias: IProvincia[] = [
-    {
-        id: 1,
-        uuid: "IGB1",
-        title: "Luanda",
-        image: '/images/img1.jpeg',
-        description: ["Capital de Angola"],
-        municipality: [
-            {
-                id: 2,
-                uuid: "IGB1",
-                title: "Ingombota",
-                image: "",
-                culture: {
-                    id: 1,
-                    uuid: '',
-                    title: "A cultura de Ingombota",
-                    image: '/images/img1.jpeg',
-                    description: [""],
-                    variants:[
-                        {
-                             id: 1,
-                             uuid:"",
-                             title: "Kuduro",
-                             image: "'/images/img1.jpeg'",
-                             description:[""],
-                             paragraph: [""]
-                        }
-                    ]
-                },
-                geography: {
-                    id: 2,
-                    uuid: "IGB1",
-                    title: "Ingobo",
-                    description: [""],
-                    image: '/images/img1.jpeg',
-                    cities: [
-                        {
-                            id: 1,
-                            uuid: "",
-                            title: 'Samba',
-                            description:["Com uma boa imagem"],
-                            image:'/images/img1.jpeg'
-                        },
-                        {
-                            id: 2,
-                            uuid: "",
-                            title: 'Sambila',
-                            description:["Venha Conhecer o melhor de Luanda"],
-                            image:'/images/img2.jpeg'
-                        },
-                        {
-                            id: 3,
-                            uuid: "",
-                            title: 'Sambila',
-                            description:["Aguardamos por si"],
-                            image:'/images/img3.jpeg'
-                        },
-                        {
-                            id: 4,
-                            uuid: "",
-                            title: 'Sambila',
-                            description:[""],
-                            image:'/images/img4.jpeg'
-                        },
-                    ]
-                },
-                heritage: [
-                    {
-                        id: 1,
-                        uuid: "",
-                        image: "",
-                        resumo: "",
-                        paragraph: [],
-                        title: "",
-                        description: []
-                    }
-                ],
-                description: [" "]
-            }
-        ]
+export const provinces: Province[] = [
+  // 1. Bengo
+  {
+    id: 1,
+    uuid: "bengo-001",
+    title: "Bengo",
+    image: "/images/provinces/bengo.jpg",
+    description: ["Província no noroeste de Angola, vizinha a Luanda."],
+    municipalities: [
+      createMunicipality(1, "Ambriz"),
+      createMunicipality(2, "Dande"),
+      createMunicipality(3, "Ícolo e Bengo"),
+      createMunicipality(4, "Muxima"),
+      createMunicipality(5, "Quiçama"),
+      createMunicipality(6, "Bula Atumba"),
+    ],
+  },
+  // 2. Benguela
+  {
+    id: 2,
+    uuid: "benguela-002",
+    title: "Benguela",
+    image: "/images/provinces/benguela.jpg",
+    description: ["Província costeira no centro-oeste de Angola."],
+    municipalities: [
+      createMunicipality(7, "Baía Farta"),
+      createMunicipality(8, "Balombo"),
+      createMunicipality(9, "Benguela"),
+      createMunicipality(10, "Bocoio"),
+      createMunicipality(11, "Caimbambo"),
+      createMunicipality(12, "Catumbela"),
+      createMunicipality(13, "Chongoroi"),
+      createMunicipality(14, "Cubal"),
+      createMunicipality(15, "Ganda"),
+      createMunicipality(16, "Lobito"),
+    ],
+  },
+  // 3. Bié
+  {
+    id: 3,
+    uuid: "bie-003",
+    title: "Bié",
+    image: "/images/provinces/bie.jpg",
+    description: ["Província no planalto central de Angola."],
+    municipalities: [
+      createMunicipality(17, "Andulo"),
+      createMunicipality(18, "Camacupa"),
+      createMunicipality(19, "Catabola"),
+      createMunicipality(20, "Chinguar"),
+      createMunicipality(21, "Chitembo"),
+      createMunicipality(22, "Cuemba"),
+      createMunicipality(23, "Cunhinga"),
+      createMunicipality(24, "Cuíto"),
+      createMunicipality(25, "Nharea"),
+    ],
+  },
+  // 4. Cabinda
+  {
+    id: 4,
+    uuid: "cabinda-004",
+    title: "Cabinda",
+    image: "/images/provinces/cabinda.jpg",
+    description: ["Província enclave no norte, separada do resto do país."],
+    municipalities: [
+      createMunicipality(26, "Belize"),
+      createMunicipality(27, "Buco-Zau"),
+      createMunicipality(28, "Cabinda"),
+      createMunicipality(29, "Cacongo"),
+    ],
+  },
+  // 5. Cuando Cubango
+  {
+    id: 5,
+    uuid: "cubango-005",
+    title: "Cuando Cubango",
+    image: "/images/provinces/cubango.jpg",
+    description: ["Província no sudeste, fronteira com a Namíbia e Zâmbia."],
+    municipalities: [
+      createMunicipality(30, "Calai"),
+      createMunicipality(31, "Cuangar"),
+      createMunicipality(32, "Cuchi"),
+      createMunicipality(33, "Cuito Cuanavale"),
+      createMunicipality(34, "Dirico"),
+      createMunicipality(35, "Mavinga"),
+      createMunicipality(36, "Menongue"),
+      createMunicipality(37, "Nancova"),
+      createMunicipality(38, "Rivungo"),
+    ],
+  },
+  // 6. Cuanza Norte
+  {
+    id: 6,
+    uuid: "cuanza-norte-006",
+    title: "Cuanza Norte",
+    image: "/images/provinces/cuanza-norte.jpg",
+    description: ["Província no norte, banhada pelo rio Cuanza."],
+    municipalities: [
+      createMunicipality(39, "Ambaca"),
+      createMunicipality(40, "Banga"),
+      createMunicipality(41, "Bolongongo"),
+      createMunicipality(42, "Cambambe"),
+      createMunicipality(43, "Cazengo"),
+      createMunicipality(44, "Golungo Alto"),
+      createMunicipality(45, "Gonguembo"),
+      createMunicipality(46, "Lucala"),
+      createMunicipality(47, "Quiculungo"),
+      createMunicipality(48, "Samba Caju"),
+    ],
+  },
+  // 7. Cuanza Sul
+  {
+    id: 7,
+    uuid: "cuanza-sul-007",
+    title: "Cuanza Sul",
+    image: "/images/provinces/cuanza-sul.jpg",
+    description: ["Província no centro-oeste, capital Sumbe."],
+    municipalities: [
+      createMunicipality(49, "Amboim"),
+      createMunicipality(50, "Cassongue"),
+      createMunicipality(51, "Cela"),
+      createMunicipality(52, "Conda"),
+      createMunicipality(53, "Ebo"),
+      createMunicipality(54, "Libolo"),
+      createMunicipality(55, "Mussende"),
+      createMunicipality(56, "Porto Amboim"),
+      createMunicipality(57, "Quibala"),
+      createMunicipality(58, "Quilenda"),
+      createMunicipality(59, "Seles"),
+      createMunicipality(60, "Sumbe"),
+    ],
+  },
+  // 8. Cunene
+  {
+    id: 8,
+    uuid: "cunene-008",
+    title: "Cunene",
+    image: "/images/provinces/cunene.jpg",
+    description: ["Província no sul, região semiárida."],
+    municipalities: [
+      createMunicipality(61, "Cahama"),
+      createMunicipality(62, "Cuanhama"),
+      createMunicipality(63, "Curoca"),
+      createMunicipality(64, "Cuvelai"),
+      createMunicipality(65, "Namacunde"),
+      createMunicipality(66, "Ombadja"),
+    ],
+  },
+  // 9. Huambo
+  {
+    id: 9,
+    uuid: "huambo-009",
+    title: "Huambo",
+    image: "/images/provinces/huambo.jpg",
+    description: ["Província no planalto central, conhecida como 'Planalto'."],
+    municipalities: [
+      createMunicipality(67, "Bailundo"),
+      createMunicipality(68, "Caála"),
+      createMunicipality(69, "Cachiungo"),
+      createMunicipality(70, "Ecunha"),
+      createMunicipality(71, "Huambo"),
+      createMunicipality(72, "Londuimbali"),
+      createMunicipality(73, "Longonjo"),
+      createMunicipality(74, "Mungo"),
+      createMunicipality(75, "Chicala-Choloanga"),
+      createMunicipality(76, "Chinjenje"),
+      createMunicipality(77, "Ucuma"),
+    ],
+  },
+  // 10. Huíla
+  {
+    id: 10,
+    uuid: "huila-010",
+    title: "Huíla",
+    image: "/images/provinces/huila.jpg",
+    description: ["Província no sul, capital Lubango."],
+    municipalities: [
+        "Caconda", "Cacula", "Caluquembe",
+        "Chibia", "Chicomba",
+        "Chipindo", "Cuvango",
+        "Gambos", "Humpata",
+        "Jamba", "Lubango",
+        "Matala", "Quilengues"
+    ].map((item,key)=>createMunicipality(key, item))
+  },
+  // 11. Luanda
+  {
+    id: 11,
+    uuid: "luanda-011",
+    title: "Luanda",
+    image: "/images/provinces/luanda.jpg",
+    description: ["Capital de Angola e província mais populosa."],
+    municipalities: [
+      createMunicipality(92, "Belas"),
+      createMunicipality(93, "Cacuaco"),
+      createMunicipality(94, "Cazenga"),
+      createMunicipality(95, "Ícolo e Bengo"),
+      createMunicipality(96, "Luanda"),
+      createMunicipality(97, "Quiçama"),
+      createMunicipality(98, "Quilamba Quiaxi"),
+      createMunicipality(99, "Talatona"),
+      createMunicipality(100, "Viana"),
+      ingombota
+    ],
+  },
+  // 12. Lunda Norte
+  {
+    id: 12,
+    uuid: "lunda-norte-012",
+    title: "Lunda Norte",
+    image: "/images/provinces/lunda-norte.jpg",
+    description: ["Província no nordeste, rica em diamantes."],
+    municipalities: [
+      createMunicipality(101, "Cambulo"),
+      createMunicipality(102, "Capenda-Camulemba"),
+      createMunicipality(103, "Caungula"),
+      createMunicipality(104, "Chitato"),
+      createMunicipality(105, "Cuango"),
+      createMunicipality(106, "Cuílo"),
+      createMunicipality(107, "Lóvua"),
+      createMunicipality(108, "Lucapa"),
+      createMunicipality(109, "Xá-Muteba"),
+    ],
+  },
+  // 13. Lunda Sul
+  {
+    id: 13,
+    uuid: "lunda-sul-013",
+    title: "Lunda Sul",
+    image: "/images/provinces/lunda-sul.jpg",
+    description: ["Província no nordeste, desmembrada da Lunda Norte."],
+    municipalities: [
+      createMunicipality(110, "Cacolo"),
+      createMunicipality(111, "Dala"),
+      createMunicipality(112, "Muconda"),
+      createMunicipality(113, "Saurimo"),
+    ],
+  },
+  // 14. Malanje
+  {
+    id: 14,
+    uuid: "malanje-014",
+    title: "Malanje",
+    image: "/images/provinces/malanje.jpg",
+    description: ["Província no norte, famosa pelas Quedas de Kalandula."],
+    municipalities: [
+      createMunicipality(114, "Cacuso"),
+      createMunicipality(115, "Calandula"),
+      createMunicipality(116, "Cambundi-Catembo"),
+      createMunicipality(117, "Cangandala"),
+      createMunicipality(118, "Caombo"),
+      createMunicipality(119, "Cuaba Nzogo"),
+      createMunicipality(120, "Cunda-Dia-Baze"),
+      createMunicipality(121, "Luquembo"),
+      createMunicipality(122, "Malanje"),
+      createMunicipality(123, "Marimba"),
+      createMunicipality(124, "Massango"),
+      createMunicipality(125, "Mucari"),
+      createMunicipality(126, "Quela"),
+      createMunicipality(127, "Quirima"),
+    ],
+  },
+  // 15. Moxico
+  {
+    id: 15,
+    uuid: "moxico-015",
+    title: "Moxico",
+    image: "/images/provinces/moxico.jpg",
+    description: ["Maior província de Angola, no leste."],
+    municipalities: [
+      createMunicipality(128, "Alto Zambeze"),
+      createMunicipality(129, "Bundas"),
+      createMunicipality(130, "Camanongue"),
+      createMunicipality(131, "Léua"),
+      createMunicipality(132, "Luau"),
+      createMunicipality(133, "Luacano"),
+      createMunicipality(134, "Luchazes"),
+      createMunicipality(135, "Cameia"),
+      createMunicipality(136, "Moxico"),
+    ],
+  },
+  // 16. Namibe
+  {
+    id: 16,
+    uuid: "namibe-016",
+    title: "Namibe",
+    image: "/images/provinces/namibe.jpg",
+    description: ["Província no sudoeste, com deserto e costa atlântica."],
+    municipalities: [
+      createMunicipality(137, "Bibala"),
+      createMunicipality(138, "Camucuio"),
+      createMunicipality(139, "Moçâmedes"),
+      createMunicipality(140, "Tômbua"),
+      createMunicipality(141, "Virei"),
+    ],
+  },
+  // 17. Uíge
+  {
+    id: 17,
+    uuid: "uige-017",
+    title: "Uíge",
+    image: "/images/provinces/uige.jpg",
+    description: ["Província no norte, rica em agricultura."],
+    municipalities: [
+      createMunicipality(142, "Alto Cauale"),
+      createMunicipality(143, "Ambuíla"),
+      createMunicipality(144, "Bembe"),
+      createMunicipality(145, "Buengas"),
+      createMunicipality(146, "Bungo"),
+      createMunicipality(147, "Damba"),
+      createMunicipality(148, "Milunga"),
+      createMunicipality(149, "Mucaba"),
+      createMunicipality(150, "Negage"),
+      createMunicipality(151, "Puri"),
+      createMunicipality(152, "Quimbele"),
+      createMunicipality(153, "Quitexe"),
+      createMunicipality(154, "Sanza Pombo"),
+      createMunicipality(155, "Songo"),
+      createMunicipality(156, "Uíge"),
+      createMunicipality(157, "Zombo"),
+    ],
+  },
+  // 18. Zaire
+  {
+    id: 18,
+    uuid: "zaire-018",
+    title: "Zaire",
+    image: "/images/provinces/zaire.jpg",
+    description: ["Província no extremo norte, fronteira com a RDC."],
+    municipalities: [
+      createMunicipality(158, "Cuimba"),
+      createMunicipality(159, "Mabanza Congo"),
+      createMunicipality(160, "Nóqui"),
+      createMunicipality(161, "Nezeto"),
+      createMunicipality(162, "Soio"),
+      createMunicipality(163, "Tomboco"),
+      createMunicipality(164, "Zaire"),
+    ],
+  },
+];
+
+// Função auxiliar para criar municípios padronizados
+function createMunicipality(id: number, title: string): Municipality {
+  return {
+    id,
+    uuid: `${title.toLowerCase().replace(/\s+/g, "-")}-${id}`,
+    title,
+    image: `/images/municipalities/${title.toLowerCase().replace(/\s+/g, "-")}.jpg`,
+    description: [`Município de ${title}, localizado em Angola.`],
+    nameOrigins: [],
+    location: { latitude: 0, longitude: 0, accuracy: 0 }, // Preencher com dados reais
+    touristAttractions: [],
+    economyAndLeisure: [],
+    generalCharacteristics: [],
+    heritageAndCulture: {
+      id,
+      uuid: `heritage-${id}`,
+      title: `Cultura de ${title}`,
+      image: "",
+      description: [],
+      culture: [],
+      heritage: [],
     },
-    {
-        id: 1,
-        uuid: "IGB1",
-        title: "Bengo",
-        image: '/images/img1.jpeg',
-        description: [" "],
-        municipality: [
-            {
-                id: 2,
-                uuid: "IGB1",
-                title: "Ingombota",
-                image: "",
-                culture: {
-                    id: 1,
-                    uuid: '',
-                    title: "A cultura de Ingombota",
-                    image: '/images/img1.jpeg',
-                    description: [""],
-                    variants:[
-                        {
-                             id: 1,
-                             uuid:"",
-                             title: "Kuduro",
-                             image:'/images/img1.jpeg',
-                             description:[""],
-                             paragraph: [""]
-                        }
-                    ]
-                },
-                geography: {
-                    id: 2,
-                    uuid: "IGB1",
-                    title: "Ingobo",
-                    description: [""],
-                    image: '/images/img1.jpeg',
-                    cities: [
-                        {
-                            id: 1,
-                            uuid: "",
-                            title: 'Samba',
-                            description:["Com uma boa imagem"],
-                            image:'/images/img1.jpeg'
-                        },
-                        {
-                            id: 2,
-                            uuid: "",
-                            title: 'Sambila',
-                            description:["Venha Conhecer o melhor de Luanda"],
-                            image:'/images/img2.jpeg'
-                        },
-                        {
-                            id: 3,
-                            uuid: "",
-                            title: 'Sambila',
-                            description:["Aguardamos por si"],
-                            image:'/images/img3.jpeg'
-                        },
-                        {
-                            id: 4,
-                            uuid: "",
-                            title: 'Sambila',
-                            description:[""],
-                            image:'/images/img4.jpeg'
-                        },
-                    ]
-                },
-                heritage: [
-                    {
-                        id: 1,
-                        uuid: "",
-                        image: "",
-                        resumo: "",
-                        paragraph: [],
-                        title: "",
-                        description: []
-                    }
-                ],
-                description: [" "]
-            }
-        ]
-    }
-]
-
-
-export const Provinces: IProvince[] = [
-    {
-        id: 0,
-        uuid: "",
-        titulo: "",
-        image: "",
-        descriao: [],
-        municipios: [
-            {
-                id: 0,
-                uuid: "INGBT",
-                titulo: "Ingombota",
-                image: "images/image2.jpeg",
-                descriao: [
-                    "O nunicípio de Ingombota, localizado na provincia de Luanda, é considerado o coração da capital angolana - tanto geograficamente quanto culturalmente.",
-                ],
-                localizacao: {
-                    latitude:  0,
-                    longitude: 0,
-                    precisao:  0
-                },
-                origem_Nome: [
-                    {
-                        id: 0,
-                        uuid: "",
-                        titulo: "Origem do Nome",
-                        image: "",
-                        descriao: [
-                            "O  nome 'Ingombota' tem raízes no quimbundo. Há duas Intepretações:"
-                        ],
-                        interpretacoes: [
-                            {
-                                titulo:   "Ingombo + kuta",
-                                descriao: "Lugar ode abunda quiabos",
-                            },
-                            {
-                                titulo:   "Ingombo + kuta",
-                                descriao: "Refúgio de foragidos (possíveis escravos)",
-                            }
-                        ]
-                    }
-                ],
-                economia_E_Lazer: [
-                    {
-                        id: 0,
-                        uuid: "",
-                        titulo: "",
-                        image: "",
-                        descriao: []
-                    }
-                ],
-                pontos_Turisticos: [
-                    {
-                        id: 0,
-                        uuid: "",
-                        titulo: "",
-                        image: "",
-                        descriao: []
-                    }
-                ],
-                patrimonio_E_Cultura: {
-                    id: 0,
-                    uuid: "",
-                    titulo: "",
-                    image: "",
-                    descriao: [],
-                    patrimonio: [{
-                        id: 0,
-                        uuid: "",
-                        titulo: "",
-                        image: "",
-                        descriao: [],
-                        patrimonios: [
-                            {
-                                id: 0,
-                                uuid: "",
-                                titulo: "",
-                                image: "",
-                                descriao: []
-                            }
-                        ]
-                    }],
-                    cultura: [
-                        {
-                            id: 0,
-                            uuid: "",
-                            titulo: "",
-                            image: "",
-                            descriao: [],
-                            culturas: [
-                                {
-                                    id: 0,
-                                    uuid: "",
-                                    titulo: "",
-                                    image: "",
-                                    descriao: []
-                                }
-                            ]
-                        }
-                    ],
-                },
-                caracteristicas_gerais: [
-                    {
-                        titulo: "Área",
-                        descriao:[ <>Aproximadamente 9,6 km<sup>2</sup></>]
-                    },
-                    {
-                        titulo: "Populção",
-                        descriao: ["Cerca de 370 mil habitantes"]
-                    },
-                    {
-                        titulo: "Limites",
-                        descriao: [
-                            "Oente e norte: Oceano Atlântico",
-                            "Leste: Sambizanga e Rangel",
-                            "Sul: Maianga e Samba"
-                        ]
-                    }
-                ],
-                subdivisoes_E_Bairros: {
-                    id: 0,
-                    uuid: "",
-                    titulo: "Sudivisões e Bairros",
-                    image: "",
-                    descriao: ["Ingombota é composta pro váiras comunas e bairros importantes:"],
-                    bairros:[
-                    {
-                        id: 0,
-                        uuid: "",
-                        titulo: "",
-                        image: "",
-                        descriao: []
-                    }],
-                    comunas:[{
-                        id: 0,
-                        uuid: "",
-                        titulo: "",
-                        image: "",
-                        descriao: []
-                    }]
-                },
-            }
-        ],
-    }
-]
+    subdivisionsAndNeighborhoods: {
+      id,
+      uuid: `subdivisions-${id}`,
+      title: `Subdivisões de ${title}`,
+      image: "",
+      description: [],
+      communes: [],
+      neighborhoods: [],
+    },
+  };
+}

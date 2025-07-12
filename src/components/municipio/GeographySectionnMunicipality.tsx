@@ -2,17 +2,17 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { IMunicipality } from '@/lib/types/interfaqces/provincia';
+import { Municipality } from '@/lib/types/interfaqces';
 
-const GeographySectionMunicipality = ({municipality}:{municipality:IMunicipality}) => {
+const GeographySectionMunicipality = ({municipality}:{municipality:Municipality}) => {
   const [currentSlide, setCurrentSlide] = useState(0);
-
+  const limit = municipality.subdivisionsAndNeighborhoods.neighborhoods.length;
   const nextSlide = () => {
-    setCurrentSlide((prev) => (prev === municipality.geography.cities.length - 1 ? 0 : prev + 1));
+    setCurrentSlide((prev) => (prev === limit - 1 ? 0 : prev + 1));
   };
 
   const prevSlide = () => {
-    setCurrentSlide((prev) => (prev === 0 ? municipality.geography.cities.length - 1 : prev - 1));
+    setCurrentSlide((prev) => (prev === 0 ? limit - 1 : prev - 1));
   };
 
   return (
@@ -44,8 +44,8 @@ const GeographySectionMunicipality = ({municipality}:{municipality:IMunicipality
               className="absolute inset-0"
             >
               <img 
-                src={municipality.geography.cities[currentSlide].image} 
-                alt={municipality.geography.cities[currentSlide].title}
+                src={municipality.subdivisionsAndNeighborhoods.neighborhoods[currentSlide]?.image|| '/images/image1.jpeg'} 
+                alt={municipality.subdivisionsAndNeighborhoods.neighborhoods[currentSlide]?.title}
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-70"></div>
@@ -56,7 +56,7 @@ const GeographySectionMunicipality = ({municipality}:{municipality:IMunicipality
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ delay: 0.3 }}
                 >
-                  {municipality.geography.cities[currentSlide]?.title}
+                  {municipality.subdivisionsAndNeighborhoods.neighborhoods[currentSlide]?.title}
                 </motion.h3>
                 <motion.p 
                   className="text-lg md:text-xl max-w-2xl"
@@ -64,7 +64,7 @@ const GeographySectionMunicipality = ({municipality}:{municipality:IMunicipality
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ delay: 0.5 }}
                 >
-                  {municipality.geography.cities[currentSlide]?.description[0]}
+                  {municipality.subdivisionsAndNeighborhoods.neighborhoods[currentSlide]?.description[0]}
                 </motion.p>
               </div>
             </motion.div>
@@ -92,7 +92,7 @@ const GeographySectionMunicipality = ({municipality}:{municipality:IMunicipality
 
           {/* Indicadores */}
           <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2 z-10">
-            {municipality.geography.cities.map((_, index) => (
+            {municipality.subdivisionsAndNeighborhoods.neighborhoods.map((_, index) => (
               <button
                 key={index}
                 onClick={() => setCurrentSlide(index)}

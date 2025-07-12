@@ -1,7 +1,7 @@
-import { UIPropsMunicipality } from '@/lib/types/interfaqces/provincia';
+import { Municipality } from '@/lib/types/interfaqces';
 import { motion } from 'framer-motion';
 
-const CultureSectionMunicipality = ({municipality}:UIPropsMunicipality) => {
+const CultureSectionMunicipality = ({municipality}:{municipality:Municipality}) => {
   return (
     <section className="py-16 px-4 md:px-8 lg:px-16  bg-opacity-20 backdrop-blur-sm">
       <div className="max-w-7xl mx-auto">
@@ -16,7 +16,7 @@ const CultureSectionMunicipality = ({municipality}:UIPropsMunicipality) => {
             Visão Geral Cultural
           </h2>
           <p className="mt-4 text-xl text-gray-300 max-w-3xl mx-auto">
-            {municipality.culture.title}
+            {municipality.heritageAndCulture.title}
           </p>
         </motion.div>
 
@@ -29,7 +29,7 @@ const CultureSectionMunicipality = ({municipality}:UIPropsMunicipality) => {
             className="relative overflow-hidden rounded-xl shadow-2xl"
           >
             <img 
-              src={municipality.culture.image} 
+              src={municipality.heritageAndCulture.image || '/images/image1.jpeg'}   
               alt="Cultura Ingombota"
               className="w-full h-auto object-cover transition-transform duration-500 hover:scale-105"
             />
@@ -43,9 +43,9 @@ const CultureSectionMunicipality = ({municipality}:UIPropsMunicipality) => {
             viewport={{ once: true }}
             className="space-y-6"
           >
-            <h3 className="text-2xl font-semibold text-yellow-400">{municipality.culture.description}</h3>
+            <h3 className="text-2xl font-semibold text-yellow-400">{municipality.heritageAndCulture.description}</h3>
             {
-              municipality.culture.variants.map((variant,item)=><p key={item}>{variant.paragraph}</p>)
+              municipality.heritageAndCulture.culture.map((variant,item)=><p key={item}>{variant.description}</p>)
             }
             <div className="flex flex-wrap gap-4 mt-6">
               <span className="px-4 py-2 bg-purple-600 bg-opacity-50 rounded-full text-sm font-medium">Festivais Anuais</span>

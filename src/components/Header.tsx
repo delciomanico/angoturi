@@ -39,8 +39,8 @@ const Header = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5, type: 'spring' }}
-      className={`fixed w-full z-50 left-0 transition-all duration-300 ${
-        isScrolled ? 'bg-gray-900 bg-opacity-90 backdrop-blur-md py-2 shadow-xl' : 'bg-transparent py-4'
+      className={`w-full z-50 left-0 transition-all duration-300 ${
+        isScrolled ? 'fixed bg-gray-900 bg-opacity-90 backdrop-blur-md py-2 shadow-xl' : 'bg-white py-4'
       }`}
     >
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

@@ -5,13 +5,13 @@ import { motion } from 'framer-motion';
 
 const Layout = ({ children }:any) => {
   return (
-    <div className="relative min-h-screen flex flex-col bg-white">
+    <div className="relative flex flex-col bg-white">
           <Header/>
           <motion.main
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
-            className="flex-grow w-full"
+            className="flex-grow w-full py-2"
           >
             {children}
           </motion.main>
