@@ -15,8 +15,10 @@ const GeographySectionMunicipality = ({municipality}:{municipality:Municipality}
     setCurrentSlide((prev) => (prev === 0 ? limit - 1 : prev - 1));
   };
 
+  const bairro = municipality.subdivisionsAndNeighborhoods.neighborhoods[currentSlide]
+
   return (
-    <section className="py-16 px-4 md:px-8 lg:px-16 bg-black bg-opacity-30 backdrop-blur-sm">
+    <section className="py-16 px-4 md:px-8 lg:px-16 bg-blak bg-opacity-30 backdrop-blur-sm">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -28,7 +30,7 @@ const GeographySectionMunicipality = ({municipality}:{municipality:Municipality}
           <h2 className="text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-900 to-teal-500">
             Geografia Urbana
           </h2>
-          <p className="mt-4 text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="mt-4 text-xl text-gray-500 max-w-3xl mx-auto">
             Explore os bairros que compõem nosso município futurista
           </p>
         </motion.div>
@@ -41,14 +43,14 @@ const GeographySectionMunicipality = ({municipality}:{municipality:Municipality}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -100 }}
               transition={{ duration: 0.5 }}
-              className="absolute inset-0"
+              className="absolute inset-0 text-white text-left"
             >
               <img 
-                src={municipality.subdivisionsAndNeighborhoods.neighborhoods[currentSlide]?.image|| '/images/image1.jpeg'} 
+                src={municipality.subdivisionsAndNeighborhoods.neighborhoods[currentSlide]?.image|| '/images/img1.jpeg'} 
                 alt={municipality.subdivisionsAndNeighborhoods.neighborhoods[currentSlide]?.title}
                 className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-70"></div>
+              {/* <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-70"></div> */}
               <div className="absolute bottom-0 left-0 right-0 p-8 md:p-12">
                 <motion.h3 
                   className="text-3xl md:text-4xl font-bold mb-2"
@@ -56,7 +58,7 @@ const GeographySectionMunicipality = ({municipality}:{municipality:Municipality}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ delay: 0.3 }}
                 >
-                  {municipality.subdivisionsAndNeighborhoods.neighborhoods[currentSlide]?.title}
+                  {bairro.title}
                 </motion.h3>
                 <motion.p 
                   className="text-lg md:text-xl max-w-2xl"
@@ -64,7 +66,7 @@ const GeographySectionMunicipality = ({municipality}:{municipality:Municipality}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ delay: 0.5 }}
                 >
-                  {municipality.subdivisionsAndNeighborhoods.neighborhoods[currentSlide]?.description[0]}
+                  {bairro.description == ""?'Descrição não disponível.' : bairro.description}        
                 </motion.p>
               </div>
             </motion.div>
@@ -73,7 +75,7 @@ const GeographySectionMunicipality = ({municipality}:{municipality:Municipality}
           {/* Controles do carrossel */}
           <button 
             onClick={prevSlide}
-            className="absolute left-4 top-1/2 -translate-y-1/2 bg-black bg-opacity-50 p-3 rounded-full hover:bg-opacity-70 transition-all z-10"
+            className="absolute left-4 top-1/2 -translate-y-1/2 bg-black bg-opacity-50 p-3 rounded-full hover:bg-opacity-70 transition-all z-10 text-white"
             aria-label="Slide anterior"
           >
             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -82,7 +84,7 @@ const GeographySectionMunicipality = ({municipality}:{municipality:Municipality}
           </button>
           <button 
             onClick={nextSlide}
-            className="absolute right-4 top-1/2 -translate-y-1/2 bg-black bg-opacity-50 p-3 rounded-full hover:bg-opacity-70 transition-all z-10"
+            className="absolute right-4 top-1/2 -translate-y-1/2 bg-black bg-opacity-50 p-3 rounded-full hover:bg-opacity-70 transition-all z-10 text-white"
             aria-label="Próximo slide"
           >
             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">

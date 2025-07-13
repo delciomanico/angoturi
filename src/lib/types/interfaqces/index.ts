@@ -18,8 +18,12 @@ export interface Item extends ItemSimple {
   image: string;
 }
 
-export interface ItemComposite extends Item {
-  locations: Item[];
+export interface ItemComposite {
+  id: number;
+  uuid: string;
+  title: string;
+  image: string;
+  description: string | ReactNode;
 }
 
 // Localização geográfica
@@ -29,26 +33,20 @@ export interface Geolocation {
   accuracy: number;
 }
 
-// Cultura
-export interface Culture extends Item {
-  cultures: Item[];
-}
-
-// Patrimônio
-export interface Heritage extends Item {
-  heritages: ItemComposite[];
+export interface  HiterageItem extends ItemComposite {
+  locations: Item[]
 }
 
 // Cultura + Patrimônio
 export interface HeritageCulture extends Item {
-  culture: Culture[];
-  heritage: Heritage[];
+  cultures: ItemComposite[];
+  heritages: HiterageItem[];
 }
 
 // Subdivisões
 export interface SubdivisionsAndNeighborhoods extends Item {
-  communes: Item[];
-  neighborhoods: Item[];
+  communes: ItemComposite[];
+  neighborhoods: ItemComposite[];
 }
 
 // Origem do nome

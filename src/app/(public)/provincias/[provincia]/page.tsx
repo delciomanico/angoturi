@@ -32,7 +32,7 @@ export default function PageProvince(){
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8, delay: 0.4 }}
                             className="
-                                text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6 px-8 py-4 text-black font-semibold rounded-full transition-all flex items-center
+                                text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight mb-6 px-8 py-4 text-black font-semibold rounded-full transition-all flex items-center
                                 "
                                 
                         >

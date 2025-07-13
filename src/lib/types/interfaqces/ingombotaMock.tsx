@@ -64,42 +64,59 @@ export const ingombota: Municipality = {
         title: "",
         image: "/images/img1.jpeg",
         description: [],
-        heritage: [
+        heritages: [
             {
-                id: 1,  uuid: "",  title: "Patrimonios", image: "/images/img1.jpeg",
-                description: ["Primeiro"],
-                heritages: [
-                    {
-                        id: 1, uuid: "PT-0001", title: "Cidade Alta", image: "/images/img2.jpeg",
-                        description: ["abriga instuições como:" ],
-                        locations: [
-                            { title: "Palacio Preseidencial", description: [], id: 0, uuid: "", image: ""},
-                            { title: "Assembleia Naiconal", description: [], id: 0, uuid: "", image: ""},
-                            { title: "Fortaleza de São Miguel e Jesuitas", description: [], id: 0, uuid: "", image: ""}
-                        ]
-                    },
-                    {
-                        id: 1, uuid: "PT-0002", title: "Ilha do Cabo", image: "",
-                        description: ["é famosa por suas praias e pela igreja da Nossa Senhora do Cabo, amais antiga de Angola"],
-                        locations: [
-                            // { title: "", description: [], id: 0,uuid: "", image: ""},
-                            // { title: "", description: [], id: 0,uuid: "", image: ""},
-                            // { title: "", description: [], id: 0,uuid: "", image: ""}
-                        ]
-                    },
-                    {
-                        id: 1, uuid: "PT-0002", title: "Musues", image: "",
-                        description: [],
-                        locations: [
-                            { title: "Museu Nacional de Antropologia",description: [],id: 0,uuid: "",image: ""},
-                            { title: "Museu das forças armadas",description: [],id: 0,uuid: "",image: ""},
-                            { title: "Museu de História Natural",description: [],id: 0,uuid: "",image: ""},
-                        ]
-                    }
+                id: 1, uuid: "PT-0001", title: "Cidade Alta", image: "/images/img2.jpeg",
+                description: "Centro político e administrativo de Luanda, com edifícios históricos e governamentais.",
+                locations: [
+                    { title: "Palacio Preseidencial", description: [], id: 0, uuid: "", image: "/images/img2.jpeg"},
+                    { title: "Assembleia Naiconal", description: [], id: 0, uuid: "", image: "/images/img2.jpeg"},
+                    { title: "Fortaleza de São Miguel e Jesuitas", description: [], id: 0, uuid: "", image: "/images/img2.jpeg"}
+                ]
+            },
+            {
+                id: 1, uuid: "PT-0002", title: "Ilha do Cabo", image: "/images/img2.jpeg",
+                description: "Uma das áreas mais icônicas de Luanda, conhecida por suas praias e vida noturna.",
+                locations: [
+                    // { title: "", description: [], id: 0,uuid: "", image: ""},
+                    // { title: "", description: [], id: 0,uuid: "", image: ""},
+                    // { title: "", description: [], id: 0,uuid: "", image: ""}
+                ]
+            },
+            {
+                id: 1, uuid: "PT-0002", title: "Museus", image: "",
+                description: "Ingombota abriga importantes museus que preservam a história e cultura de Angola.",
+                locations: [
+                    { title: "Museu Nacional de Antropologia",description: [
+                        "Exibe artefatos culturais e históricos de Angola",
+                        "Focado na diversidade étnica e cultural do país",
+                        "É o museu mais antigo da historia de Angola",
+                        "É o museu mais antigo da historia de Angola"]
+                    ,id: 0,uuid: "",image: ""},
+                    { title: "Museu das forças armadas",description: [],id: 0,uuid: "",image: ""},
+                    { title: "Museu de História Natural",description: [],id: 0,uuid: "",image: ""},
                 ]
             }
         ],
-        culture: [
+        cultures: [
+                    {
+                        title: "Festivais Anuais", description: "Ingombota é palco de diversos festivais culturais, como o Festival Internacional de Luanda e o Festival de Dança Tradicional.",
+                        id: 0,
+                        uuid: "",
+                        image: "",
+                    },
+                    {
+                        title: "Arte Digital", description: "A cultura digital tem crescido, com artistas locais explorando novas mídias e tecnologias.",
+                        id: 0,
+                        uuid: "",
+                        image: "",
+                    },
+                    {
+                        title: "Danças Tradicionais", description: "As danças tradicionais angolanas, como o Semba e a Kizomba, são parte importante da identidade cultural local.",
+                        id: 0,
+                        uuid: "",
+                        image: "",
+                    }
         ],
     },
     generalCharacteristics: [

@@ -2,12 +2,12 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Heritage, ItemComposite} from '@/lib/types/interfaqces';
-import clsx from 'clsx';
+import { HiterageItem } from '@/lib/types/interfaqces';
 
 
-const HeritageSectionnMunicipality = ({hiterage}:{hiterage:ItemComposite}) => {
-  const [selectedHeritage, setSelectedHeritage] = useState(hiterage.locations);
+
+const HeritageSectionnMunicipality = ({hiterage}:{hiterage:HiterageItem }) => {
+  const [selectedHeritage, setSelectedHeritage] = useState(hiterage.locations[0] || hiterage);
 
   return (
     <section className="py-16 px-4 md:px-8 lg:px-16">
@@ -22,8 +22,8 @@ const HeritageSectionnMunicipality = ({hiterage}:{hiterage:ItemComposite}) => {
           <h2 className="text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-500">
             Patrimônio e Pontos Turísticos
           </h2>
-          {selectedHeritage[0].title}
-          {selectedHeritage[0].description[0]}
+          {hiterage.title && <p className="text-lg text-gray-600 mt-2">{hiterage.title}</p>}
+          {hiterage.description && <p className="text-md text-gray-500 mt-1">{hiterage.description}</p>}
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -33,28 +33,21 @@ const HeritageSectionnMunicipality = ({hiterage}:{hiterage:ItemComposite}) => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="grid grid-cols-1 lg:grid-cols-3 gap-5"
+            className="flex flex-col gap-5"
+            style={{backgroundImage: `url(${hiterage.locations[0].image  || '/images/img2.jpeg'})`, backgroundSize: 'cover', backgroundPosition: 'center', padding: '20px', borderRadius: '8px'}}
           >
-            {/* {hiterages?.map((item) => (
-              <div key={item.id} className="grid grid-cols-1 lg:grid-cols-3 gap-5"
-                  onClick={() => setSelectedHeritage(item)}>
-                <h3 className="text-xl font-semibold">{item.title}</h3>
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-[2px]">
-                  {item.heritages.map((h, key)=><motion.div
-                    key={key}
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    className={clsx("p-4 rounded-lg cursor-pointer transition-colors shadow-sm shadow-yellow-500/40 font-semibold",
-                      selectedHeritage?.id === item.id ? 'bg-opacity-50 border-l-4 border-l-red-700/50 border border-gray-200'
-                      :'bg-gray-800 bg-opacity-50 hover:bg-gray-700'
-                    )}
-                  >
-                    {h.title}
-                  </motion.div>)}
-                  </div>
-                </div>
-              ))} */}
-              {JSON.stringify(hiterage)}
+            {hiterage.locations.map((item,key) => (
+              <motion.div 
+                key={key} 
+                className={`p-4 rounded-lg cursor-pointer hover:bg-gray-100 transition-colors h-24 text-white ${selectedHeritage.id === item.id ? 'bg-gray-200' : ''}`}
+                onClick={() => setSelectedHeritage(item)}
+                whileHover={{ scale: 1.05 }}
+               
+                style={{ backgroundImage: `url(${item.image || '/images/img1.jpeg'})`, backgroundSize: 'cover', backgroundPosition: 'center'}}
+              >
+                <h3 className="text-xl font-semibold text-left">{item.title}</h3>
+              </motion.div>
+            ))}
           </motion.div>
 
           {/* Conteúdo do patrimônio selecionado */}
@@ -82,17 +75,36 @@ const HeritageSectionnMunicipality = ({hiterage}:{hiterage:ItemComposite}) => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-70"></div>
                 </div>
-                <div className="p-6 md:p-8">
-                  <h3 className="text-2xl md:text-3xl font-bold mb-4">{selectedHeritage.title}</h3>
-                  <p className="text-lg leading-relaxed">{selectedHeritage.description}</p>
-                  <button className="mt-6 px-6 py-3 bg-gradient-to-r from-blue-500 to-cyan-400 rounded-lg font-medium hover:opacity-90 transition-opacity">
-                    Explorar em 3D
-                  </button>
-                </div>
+                  <motion.div 
+                    className="lg:col-span-2 border-red-500"
+                    initial={{ opacity: 0, x: 30 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.6 }}
+                    viewport={{ once: true }}
+                  >
+                    <div className="p-6 md:p-8 text-left">
+                      <h3 className="text-2xl md:text-3xl font-bold mb-4">{selectedHeritage.title}</h3>
+                      <div className="">
+                        {selectedHeritage.description.map((item)=>
+                        <motion.p
+                          key={selectedHeritage.id}
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          exit={{ opacity: 0 }}
+                          transition={{ duration: 0.3 }}
+                          className="bg-gray-200 bg-opacity-50 rounded-xl overflow-hidden shadow-2xl"
+                        >
+                          {item}   
+                        </motion.p>
+                      )}
+                      </div>
+                    </div>
+                  </motion.div>
               </motion.div>
             </AnimatePresence>}
           </motion.div>
         </div>
+        
       </div>
     </section>
   );

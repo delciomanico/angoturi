@@ -1,9 +1,11 @@
 "use client"
 
 import AboutSectioMunipality from "@/components/municipio/AboutSectionMunicipio";
-import CultureSectionMunicipality from "@/components/municipio/CultureSection";
+import SeccaoCultura from "@/components/municipio/culturas";
+// import CultureSectionMunicipality from "@/components/municipio/CultureSection";
 import GeographySectionMunicipality from "@/components/municipio/GeographySectionnMunicipality";
 import HeritageSectionnMunicipality from "@/components/municipio/HeritageSectionnMunicipality";
+import { SessaoPatrimonio } from "@/components/municipio/patrimonios";
 import { provinces } from "@/lib/placeholderData";
 import { Municipality, Province } from "@/lib/types/interfaqces";
 import { useParams } from "next/navigation"
@@ -35,8 +37,10 @@ export default function PageProvince(){
         </>:<>
             {municipality && provincia?<div className="mt-5">
                 <AboutSectioMunipality province={provincia} municipality={municipality} />
-                <HeritageSectionnMunicipality hiterages={municipality.heritageAndCulture.heritage[0]} />
-                <CultureSectionMunicipality municipality={municipality}/>
+                <SessaoPatrimonio heritages={municipality.heritageAndCulture.heritages} />
+                <HeritageSectionnMunicipality hiterage={municipality.heritageAndCulture.heritages[2]} />
+                <SeccaoCultura cultures={municipality.heritageAndCulture.cultures} />
+                {/* <CultureSectionMunicipality cultures={municipality.heritageAndCulture.cultures}/> */}
                 <GeographySectionMunicipality municipality={municipality}/>
             </div>:<>
                 <div className="text-2xl font-medium flex-col gap-3 flex items-center justify-center">
