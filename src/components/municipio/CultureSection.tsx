@@ -1,4 +1,4 @@
-import { ItemComposite, Municipality } from '@/lib/types/interfaqces';
+import { ItemComposite } from '@/lib/types/interfaqces';
 import { motion } from 'framer-motion';
 
 const CultureSectionMunicipality = ({cultures}:{cultures:ItemComposite[]}) => {

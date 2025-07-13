@@ -34,7 +34,7 @@ export interface Geolocation {
 }
 
 export interface  HiterageItem extends ItemComposite {
-  locations: Item[]
+  locations: ItemComposite[]
 }
 
 // Cultura + Patrimônio

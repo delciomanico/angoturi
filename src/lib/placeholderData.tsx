@@ -360,8 +360,8 @@ function createMunicipality(id: number, title: string): Municipality {
       title: `Cultura de ${title}`,
       image: "",
       description: [],
-      culture: [],
-      heritage: [],
+      cultures: [],
+      heritages: [],
     },
     subdivisionsAndNeighborhoods: {
       id,

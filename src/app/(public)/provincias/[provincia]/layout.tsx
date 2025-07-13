@@ -1,15 +1,15 @@
 "use client"
 
-import { motion } from 'framer-motion';
-import { ArrowRight, Link } from 'react-feather';
+import { ReactNode } from "react";
 
-const Layout = ({ children }:any) => {
+const Layout = ({ children }:{children: ReactNode}) => {
       return (<>
       <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white">
       {/* Background com gradiente e imagem */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0"></div>
-        <div className="absolute inset-0 bg-[url('/images/iamge1.jpg')] bg-cover bg-center opacity-30"></div>
+        {/* <div className="absolute inset-0 bg-[url('/images/img1.jpeg')] bg-cover bg-center opacity-30"></div> */}
+        <div className="absolute inset-0 bg-cover bg-center opacity-30"></div>
       </div>
 
       {/* Conteúdo principal */}

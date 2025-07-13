@@ -1,7 +1,7 @@
 "use client"
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Globe } from 'react-feather';
+import { Menu, X } from 'react-feather';
 import Link from 'next/link';
 import { GiAngola } from 'react-icons/gi';
 
@@ -78,10 +78,10 @@ const Header = () => {
                   className="relative"
                   onClick={() => setActiveLink(link.href.substring(1))}
                 >
-                  <span className={`text-sm font-medium transition-colors ${
+                  <span className={`text-sm font-medium transition-colors uppercase ${
                     activeLink === link.href.substring(1) 
                       ? 'text-yellow-400' 
-                      : 'text-white hover:text-yellow-300'
+                      : isScrolled ?'text-orange hover:text-yellow-300 ': 'text-orange hover:text-yellow-300 '
                   }`}>
                     {link.name}
                   </span>
@@ -99,7 +99,7 @@ const Header = () => {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-4 py-2 bg-gradient-to-r from-red-500 to-black text-white text-sm font-medium rounded-full shadow-lg hover:shadow-xl transition-all"
+              className="px-4 py-2 bg-gradient-to-r from-yellow-500 via-orange-500 to-red-500 text-white text-sm font-medium rounded-full shadow-lg hover:shadow-xl transition-all"
             >
               Contacte-nos
             </motion.button>

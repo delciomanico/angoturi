@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import Image from 'next/image';
 
 const neighborhoods = [
   {
@@ -69,7 +70,7 @@ const GeographySection = () => {
               transition={{ duration: 0.5 }}
               className="absolute inset-0"
             >
-              <img 
+              <Image 
                 src={neighborhoods[currentSlide].image} 
                 alt={neighborhoods[currentSlide].name}
                 className="w-full h-full object-cover"

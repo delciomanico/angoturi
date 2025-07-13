@@ -11,9 +11,9 @@ export default function PageProvince(){
     const params = useParams()
     const [provincia, setProvincia]  =  useState<Province| null>(null)
     const [loading, setLoading] = useState(true)
-    const tmpProvince = params.provincia;
 
     useEffect(()=>{
+        const tmpProvince = params.provincia;
         setProvincia(provinces.find(p=>tmpProvince == p.title.toLocaleLowerCase()) || null)
         setLoading(false)
     },[params])

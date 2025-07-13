@@ -2,8 +2,9 @@
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import { motion } from 'framer-motion';
+import { ReactNode } from 'react';
 
-const Layout = ({ children }:any) => {
+const Layout = ({ children }:{children:ReactNode}) => {
   return (
     <div className="relative flex flex-col bg-white">
           <Header/>

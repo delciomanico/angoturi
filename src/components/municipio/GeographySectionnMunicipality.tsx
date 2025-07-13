@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Municipality } from '@/lib/types/interfaqces';
+import Image from 'next/image';
 
 const GeographySectionMunicipality = ({municipality}:{municipality:Municipality}) => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -15,11 +16,12 @@ const GeographySectionMunicipality = ({municipality}:{municipality:Municipality}
     setCurrentSlide((prev) => (prev === 0 ? limit - 1 : prev - 1));
   };
 
-  const bairro = municipality.subdivisionsAndNeighborhoods.neighborhoods[currentSlide]
+  const bairro = municipality.subdivisionsAndNeighborhoods.neighborhoods[currentSlide] || null
 
   return (
     <section className="py-16 px-4 md:px-8 lg:px-16 bg-blak bg-opacity-30 backdrop-blur-sm">
-      <div className="max-w-7xl mx-auto">
+      {limit > 0 ? <>
+        <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -45,7 +47,7 @@ const GeographySectionMunicipality = ({municipality}:{municipality:Municipality}
               transition={{ duration: 0.5 }}
               className="absolute inset-0 text-white text-left"
             >
-              <img 
+              <Image 
                 src={municipality.subdivisionsAndNeighborhoods.neighborhoods[currentSlide]?.image|| '/images/img1.jpeg'} 
                 alt={municipality.subdivisionsAndNeighborhoods.neighborhoods[currentSlide]?.title}
                 className="w-full h-full object-cover"
@@ -105,6 +107,18 @@ const GeographySectionMunicipality = ({municipality}:{municipality:Municipality}
           </div>
         </div>
       </div>
+      </>:<>
+        <div className="max-w-7xl mx-auto text-center">
+          <motion.h2
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-red-400 to-yellow-500"
+          >
+            Nenhum bairro encontrado
+          </motion.h2>
+        </div>
+      </>}
     </section>
   );
 };

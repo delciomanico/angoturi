@@ -1,6 +1,8 @@
 "use client"
 
-const Layout = ({ children }:any) => {
+import { ReactNode } from "react";
+
+const Layout = ({ children }:{children: ReactNode}) => {
   return (
     <>
         <div className="mt-24 min-h-screen flex flex-col">

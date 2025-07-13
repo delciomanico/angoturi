@@ -1,7 +1,6 @@
 "use client"
 
 import { motion } from 'framer-motion';
-import { ArrowRight } from 'react-feather';
 import { provinces } from "@/lib/placeholderData";
 import Link from 'next/link';
 

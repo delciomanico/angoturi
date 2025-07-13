@@ -1,6 +1,7 @@
 'use client'
 import { motion } from 'framer-motion';
 import { ItemComposite } from '@/lib/types/interfaqces';
+import Image from 'next/image';
 export default function Cultura ({cultura}:{cultura: ItemComposite}) {
     return (
         <motion.div
@@ -11,7 +12,10 @@ export default function Cultura ({cultura}:{cultura: ItemComposite}) {
             className="srelative overflow-hidden rounded-xl shadow-2xl"
         >
             <div className="relative flex items-end justify-center h-64 md:h-80">
-                <img src={cultura.image || '/images/img2.jpeg'} alt={cultura.title} />
+                <Image
+                    src={cultura.image || '/images/img2.jpeg'}
+                    alt={cultura.title}
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70 flex items-end p-4">         
                     <h2 className="text-3xl font-bold text-gray-200">{cultura.title}</h2>
                 </div>

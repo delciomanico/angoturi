@@ -16,18 +16,18 @@ export default function PageProvince(){
     const [provincia, setProvincia]  =  useState<Province| null>(null)
     const [municipality, setMunipio] = useState<Municipality| null>(null)
     const [loading, setLoading] = useState(true)
-    const tmpProvince = params.provincia;
-    const tmpMunicipio = params.municipio;
 
     useEffect(()=>{
+        const tmpProvince = params.provincia;
         setProvincia(provinces.find(p=>(tmpProvince == p.title.toLowerCase() || tmpProvince == p.title )) || null)
     },[params])
 
     useEffect(()=>{
+        const tmpMunicipio = params.municipio;
         if(provincia)
             setMunipio(provincia.municipalities.find(m=> tmpMunicipio == m.title.toLowerCase() || tmpMunicipio == m.title) || null)
         setLoading(false)
-    },[provincia])
+    },[provincia, params])
 
     return (<>
         {loading?<>
@@ -35,13 +35,28 @@ export default function PageProvince(){
                 <h1 className="text-3xl text-white">Carregando...</h1>
             </div>
         </>:<>
-            {municipality && provincia?<div className="mt-5">
-                <AboutSectioMunipality province={provincia} municipality={municipality} />
-                <SessaoPatrimonio heritages={municipality.heritageAndCulture.heritages} />
-                <HeritageSectionnMunicipality hiterage={municipality.heritageAndCulture.heritages[2]} />
-                <SeccaoCultura cultures={municipality.heritageAndCulture.cultures} />
-                {/* <CultureSectionMunicipality cultures={municipality.heritageAndCulture.cultures}/> */}
-                <GeographySectionMunicipality municipality={municipality}/>
+            {provincia?<div className="mt-5">
+                {municipality?<div className="mt-5">
+                    <AboutSectioMunipality province={provincia} municipality={municipality} />
+                    <SessaoPatrimonio hiterages={municipality.heritageAndCulture.heritages} />
+                    <div className="">
+                        <h2 className="text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-red-400 to-yellow-500">
+                            Patrimônio e Pontos Turísticos
+                        </h2>
+                        
+                        <div className="grid gap-5">
+                            {municipality.heritageAndCulture.heritages.map((item, key)=><HeritageSectionnMunicipality key={key} hiterage={item} />) }
+                        </div>
+                    </div>
+                    <SeccaoCultura cultures={municipality.heritageAndCulture.cultures} />
+                    {/* <CultureSectionMunicipality cultures={municipality.heritageAndCulture.cultures}/> */}
+                    <GeographySectionMunicipality municipality={municipality}/>
+                </div>:<>
+                    <div className="text-2xl font-medium flex-col gap-3 flex items-center justify-center">
+                        <h1 className="text-6xl font-bold">404</h1>
+                        <p>Este recuso não foi encontrado!</p>
+                    </div>
+            </>}
             </div>:<>
                 <div className="text-2xl font-medium flex-col gap-3 flex items-center justify-center">
                     <h1 className="text-6xl font-bold">404</h1>

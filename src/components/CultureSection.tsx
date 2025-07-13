@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 const CultureSection = () => {
   return (
@@ -27,7 +28,7 @@ const CultureSection = () => {
             viewport={{ once: true }}
             className="relative overflow-hidden rounded-xl shadow-2xl"
           >
-            <img 
+            <Image 
               src="/images/culture.jpg" 
               alt="Cultura Ingombota"
               className="w-full h-auto object-cover transition-transform duration-500 hover:scale-105"

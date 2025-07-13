@@ -66,35 +66,30 @@ export const ingombota: Municipality = {
         description: [],
         heritages: [
             {
-                id: 1, uuid: "PT-0001", title: "Cidade Alta", image: "/images/img2.jpeg",
+                id: 1, uuid: "PT-0001", title: "Cidade Alta", image: "/images/provincias/luanda/ingombota/cidade-alta.jpg",
                 description: "Centro político e administrativo de Luanda, com edifícios históricos e governamentais.",
                 locations: [
-                    { title: "Palacio Preseidencial", description: [], id: 0, uuid: "", image: "/images/img2.jpeg"},
-                    { title: "Assembleia Naiconal", description: [], id: 0, uuid: "", image: "/images/img2.jpeg"},
-                    { title: "Fortaleza de São Miguel e Jesuitas", description: [], id: 0, uuid: "", image: "/images/img2.jpeg"}
+                    { title: "Palacio Preseidencial", description: "", id: 1, uuid: "", image: "/images/provincias/luanda/ingombota/palacio-presidencial.jpg"},
+                    { title: "Assembleia Naiconal", description: "", id: 2, uuid: "", image: "/images/provincias/luanda/ingombota/assembleia-nacional.jpg"},
+                    { title: "Fortaleza de São Miguel e Jesuitas", description: "", id: 2, uuid: "", image: "/images/provincias/luanda/ingombota/fortaleza-de-sao-miguel.jpeg" }
                 ]
             },
             {
                 id: 1, uuid: "PT-0002", title: "Ilha do Cabo", image: "/images/img2.jpeg",
                 description: "Uma das áreas mais icônicas de Luanda, conhecida por suas praias e vida noturna.",
                 locations: [
-                    // { title: "", description: [], id: 0,uuid: "", image: ""},
-                    // { title: "", description: [], id: 0,uuid: "", image: ""},
-                    // { title: "", description: [], id: 0,uuid: "", image: ""}
+                    { title: "Praia do Bispo", description: "", id: 0, uuid: "", image: "/images/img2.jpeg"},
+                    { title: "Praia da Lua", description: "", id: 1, uuid: "", image: "/images/img2.jpeg"},
+                    { title: "Ilha de Luanda", description: "", id: 2, uuid: "", image: "/images/img2.jpeg"}
                 ]
             },
             {
-                id: 1, uuid: "PT-0002", title: "Museus", image: "",
+                id: 1, uuid: "PT-0002", title: "Museus", image: "/images/img2.jpeg",
                 description: "Ingombota abriga importantes museus que preservam a história e cultura de Angola.",
                 locations: [
-                    { title: "Museu Nacional de Antropologia",description: [
-                        "Exibe artefatos culturais e históricos de Angola",
-                        "Focado na diversidade étnica e cultural do país",
-                        "É o museu mais antigo da historia de Angola",
-                        "É o museu mais antigo da historia de Angola"]
-                    ,id: 0,uuid: "",image: ""},
-                    { title: "Museu das forças armadas",description: [],id: 0,uuid: "",image: ""},
-                    { title: "Museu de História Natural",description: [],id: 0,uuid: "",image: ""},
+                    { title: "Museu Nacional de Antropologia",description: "Exibe artefatos culturais e históricos de Angola",id: 0,uuid: "",image: ""},
+                    { title: "Museu das forças armadas",description: "",id: 1,uuid: "",image: "/images/img3.jpeg"},
+                    { title: "Museu de História Natural",description: "",id: 2,uuid: "",image: "/images/img3.jpeg"},
                 ]
             }
         ],

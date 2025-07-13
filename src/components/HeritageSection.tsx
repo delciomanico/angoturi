@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import Image from 'next/image';
 
 const heritageItems = [
   {
@@ -88,7 +89,7 @@ const HeritageSection = () => {
                 className="bg-gray-900 bg-opacity-50 rounded-xl overflow-hidden shadow-2xl"
               >
                 <div className="relative h-64 md:h-80 w-full overflow-hidden">
-                  <img 
+                  <Image 
                     src={selectedHeritage.image} 
                     alt={selectedHeritage.title}
                     className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
