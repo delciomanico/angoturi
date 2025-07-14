@@ -11,7 +11,7 @@ export default function SeccaoCultura({cultures}:{cultures:ItemComposite[]}) {
         <div className="">
             <h2 className="text-3xl font-bold">Culturas Locais</h2>
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-3 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 items-center">
             {cultures.length? cultures.map((culture, key) => <Cultura key={key} cultura={culture}/>): <>
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}

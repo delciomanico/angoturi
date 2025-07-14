@@ -19,7 +19,7 @@ const GeographySectionMunicipality = ({municipality}:{municipality:Municipality}
   const bairro = municipality.subdivisionsAndNeighborhoods.neighborhoods[currentSlide] || null
 
   return (
-    <section className="py-16 px-4 md:px-8 lg:px-16 bg-blak bg-opacity-30 backdrop-blur-sm">
+    <section className="py-16  md:px-8 lg:px-16 bg-blak bg-opacity-30 backdrop-blur-sm">
       {limit > 0 ? <>
         <div className="max-w-7xl mx-auto">
         <motion.div
@@ -37,7 +37,7 @@ const GeographySectionMunicipality = ({municipality}:{municipality:Municipality}
           </p>
         </motion.div>
 
-        <div className="relative h-[500px] md:h-[600px] rounded-2xl overflow-hidden shadow-2xl">
+        <div className="relative h-[500px] md:h-[600px] rounded-md overflow-hidden shadow-xl">
           <AnimatePresence mode="wait">
             <motion.div
               key={currentSlide}
@@ -51,7 +51,7 @@ const GeographySectionMunicipality = ({municipality}:{municipality:Municipality}
                 src={municipality.subdivisionsAndNeighborhoods.neighborhoods[currentSlide]?.image|| '/images/img1.jpeg'}
                 fill
                 alt={municipality.subdivisionsAndNeighborhoods.neighborhoods[currentSlide]?.title}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover rounded-md transition-transform duration-700 hover:scale-110"
               />
               {/* <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-70"></div> */}
               <div className="absolute bottom-0 left-0 right-0 p-8 md:p-12">

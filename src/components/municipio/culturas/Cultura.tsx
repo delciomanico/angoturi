@@ -9,7 +9,7 @@ export default function Cultura ({cultura}:{cultura: ItemComposite}) {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
             viewport={{ once: true }}
-            className="srelative overflow-hidden rounded-xl shadow-2xl"
+            className="srelative overflow-hidden rounded-xl shadow-2xl h-full"
         >
             <div className="relative flex items-end justify-center h-64 md:h-80">
                 <Image
@@ -25,7 +25,11 @@ export default function Cultura ({cultura}:{cultura: ItemComposite}) {
                 </div>
             </div>
             <div className="p-4">
-                <p className="text-gray-600 text-justify">Explore as diversas culturas que compõem a riqueza cultural do nosso município.</p>
+                <p className="text-gray-600 text-justify text-wrap leading-relaxed">
+                    {cultura.description?.toString() ? <>
+                        {cultura.description.toString().length > 80? cultura.description?.toString().slice(0, 80)+'...': cultura.description}
+                    </>: 'Sem descrição disponível.'}
+                    </p>
             </div>
         </motion.div>
     )

@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'react-feather';
 import Link from 'next/link';
 import { GiAngola } from 'react-icons/gi';
+import clsx from 'clsx';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -110,7 +111,7 @@ const Header = () => {
             <motion.button
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
-              className="text-white focus:outline-none"
+              className={clsx(" focus:outline-none transition-transform duration-300", isScrolled ? "text-white" : 'text-orange-500')}
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label="Menu"
             >

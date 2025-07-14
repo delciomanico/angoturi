@@ -75,33 +75,39 @@ export const ingombota: Municipality = {
                 ]
             },
             {
-                id: 1, uuid: "PT-0002", title: "Ilha do Cabo", image: `${path}ilha-do-cabo.jpg`     ,
+                id: 1, uuid: "PT-0002", title: "Ilha do Cabo", image: `${path}praia-do-bispo.jpg`     ,
                 description: "Uma das áreas mais icônicas de Luanda, conhecida por suas praias e vida noturna.",
                 locations: [
                     {
                         title: "Praia do Bispo", 
                         description: "Uma das praias mais populares, com areia branca e águas calmas.",
-                        id: 0, uuid: "", image: `${path}ilha-do-cabo.jpg`,      
+                        id: 0, uuid: "", image: `${path}praia-do-bispo.jpg`,      
                     },
                     {
                         title: "Praia da Lua",
                         description: "Famosa por suas formações rochosas e vistas deslumbrantes.",
-                         id: 1, uuid: "", image: `${path}ilha-do-cabo.jpg`,     
+                         id: 1, uuid: "", image: `${path}praia-do-bispo.jpg`,     
                         },
                     {
                         title: "Ilha de Luanda",
                         description: "Uma pequena ilha com restaurantes e bares, ideal para relaxar.",
-                        id: 2, uuid: "", image: `${path}ilha-do-cabo.jpg`,      
+                        id: 2, uuid: "", image: `${path}praia-do-bispo.jpg`,      
                     }
                 ]
             },
             {
-                id: 1, uuid: "PT-0002", title: "Museus", image: `${path}ilha-do-cabo.jpg`       ,
+                id: 1, uuid: "PT-0002", title: "Museus", image: `${path}praia-do-bispo.jpg`       ,
                 description: "Ingombota abriga importantes museus que preservam a história e cultura de Angola.",
                 locations: [
-                    { title: "Museu Nacional de Antropologia",description: "Exibe artefatos culturais e históricos de Angola",id: 0,uuid: "",image: ""},
-                    { title: "Museu das forças armadas",description: "",id: 1,uuid: "",image: "/images/img3.jpeg"},
-                    { title: "Museu de História Natural",description: "",id: 2,uuid: "",image: "/images/img3.jpeg"},
+                    {
+                        title: "Museu Nacional de Antropologia",
+                        description: "Exibe artefatos culturais e históricos de Angola",id: 1,uuid: "",image: `${path}museu-nacional-de-antropologia.jpg`},
+                    {
+                        title: "Museu das forças armadas",
+                        description: "",id: 2,uuid: "",image:`${path}museu-das-forcas-armadas.jpg`},
+                    {
+                        title: "Museu de História Natural",
+                        description: "",id: 3,uuid: "",image:`${path}museu-da-historia-natural.jpg`}
                 ]
             }
         ],

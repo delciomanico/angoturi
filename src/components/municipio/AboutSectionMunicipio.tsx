@@ -30,7 +30,7 @@ const AboutSectioMunipality = ({province, municipality}:UIPropsMunicipality) => 
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="inline-flex items-center px-4 py-2 bg-black/30 backdrop-blur-sm rounded-full border border-white/20 mb-6"
+              className="inline-flex items-center px-4 py-2 bg-black/70 backdrop-blur-sm rounded-full border border-white/20 mb-6"
             >
               <MapPin className="text-yellow-400 mr-2" size={18} />
               <span className="text-sm font-medium text-white">{province.title}, Angola</span>

@@ -78,24 +78,14 @@ const HeritageSectionnMunicipality = ({hiterage}:{hiterage:HiterageItem }) => {
                 </div>
                   <motion.div 
                     className="lg:col-span-2"
-                    initial={{ opacity: 0, x: 30 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6 }}
-                    viewport={{ once: true }}
                   >
                     <div className="p-6 md:p-8 text-left">
                       <h3 className="text-2xl md:text-3xl font-bold mb-4">{selectedHeritage.title}</h3>
                       <div className="">
-                        <motion.p
-                          key={selectedHeritage.id}
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          exit={{ opacity: 0 }}
-                          transition={{ duration: 0.3 }}
-                          className="bg-gray-200 bg-opacity-50 rounded-xl overflow-hidden shadow-2xl"
+                        <p  className="overflow-hidden shadow-2xl"
                         >
                           {selectedHeritage.description|| 'Sem descrição disponível.'}   
-                        </motion.p>
+                        </p>
                       </div>
                     </div>
                   </motion.div>
