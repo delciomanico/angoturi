@@ -14,10 +14,10 @@ const Footer = () => {
             viewport={{ once: true }}
           >
             <h3 className="text-xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-orange-500">
-              Município Futurista
+              Angoturi
             </h3>
             <p className="text-gray-400">
-              Guia turístico oficial do município, mostrando a fusão entre tradição e tecnologia.
+              Guia turístico oficial de angola, mostrando a fusão entre tradição e tecnologia.
             </p>
           </motion.div>
 
@@ -28,7 +28,7 @@ const Footer = () => {
             },
             {
               title: "Contato",
-              links: ["info@municipiofuturista.ao", "+244 123 456 789", "Mapa do Site"]
+              links: ["info@angoturi.ao", "+244 123 456 789", "Mapa do Site"]
             },
             {
               title: "Legal",

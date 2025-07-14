@@ -38,13 +38,13 @@ const HeritageSectionnMunicipality = ({hiterage}:{hiterage:HiterageItem }) => {
             {hiterage.locations.map((item,key) => (
               <motion.div 
                 key={key} 
-                className={`relative rounded-lg cursor-pointer hover:bg-gray-100 transition-colors h-20 text-white bg-black/50 overflow-hidden ${selectedHeritage.id === item.id ? 'bg-gray-200' : ''}`}
+                className={`relative rounded-lg cursor-pointer hover:bg-gray-100 transition-colors h-18 text-white bg-black/50 overflow-hidden ${selectedHeritage.id === item.id ? 'bg-gray-200' : ''}`}
                 onClick={() => setSelectedHeritage(item)}
                 whileHover={{ scale: 1.05 }}
                 style={{ backgroundImage: `url(${item.image || '/images/img1.jpeg'})`, backgroundSize: 'cover', backgroundPosition: 'center'}}
               >
-                <div className="absolute w-full h-full bg-black/50 rouneded-lg p-3">
-                  <h3 className="text-xl font-semibold text-left">{item.title}</h3>
+                <div className="absolute w-full h-full bg-black/50 rouneded-lg p-3 items-center flex justify-left">
+                  <h3 className="text-md  text-left">{item.title}</h3>
                 </div>
               </motion.div>
             ))}
@@ -70,6 +70,7 @@ const HeritageSectionnMunicipality = ({hiterage}:{hiterage:HiterageItem }) => {
                 <div className="relative h-64 md:h-80 w-full overflow-hidden">
                   <Image
                     src={selectedHeritage.image || '/images/img1.jpeg'} 
+                    fill
                     alt={selectedHeritage.title}
                     className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
                   />
@@ -93,7 +94,7 @@ const HeritageSectionnMunicipality = ({hiterage}:{hiterage:HiterageItem }) => {
                           transition={{ duration: 0.3 }}
                           className="bg-gray-200 bg-opacity-50 rounded-xl overflow-hidden shadow-2xl"
                         >
-                          {selectedHeritage.description}   
+                          {selectedHeritage.description|| 'Sem descrição disponível.'}   
                         </motion.p>
                       </div>
                     </div>

@@ -14,6 +14,10 @@ export default function Cultura ({cultura}:{cultura: ItemComposite}) {
             <div className="relative flex items-end justify-center h-64 md:h-80">
                 <Image
                     src={cultura.image || '/images/img2.jpeg'}
+                    fill
+                    className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    quality={100}
                     alt={cultura.title}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70 flex items-end p-4">         

@@ -1,5 +1,5 @@
 import { Municipality } from ".";
-
+const path = "/images/provincias/luanda/ingombota/";
 export const ingombota: Municipality = {
     id: 0,
     uuid: "INGBT",
@@ -66,25 +66,37 @@ export const ingombota: Municipality = {
         description: [],
         heritages: [
             {
-                id: 1, uuid: "PT-0001", title: "Cidade Alta", image: "/images/provincias/luanda/ingombota/cidade-alta.jpg",
+                id: 1, uuid: "PT-0001", title: "Cidade Alta", image: `${path}cidade-alta.jpg`,
                 description: "Centro político e administrativo de Luanda, com edifícios históricos e governamentais.",
                 locations: [
-                    { title: "Palacio Preseidencial", description: "", id: 1, uuid: "", image: "/images/provincias/luanda/ingombota/palacio-presidencial.jpg"},
-                    { title: "Assembleia Naiconal", description: "", id: 2, uuid: "", image: "/images/provincias/luanda/ingombota/assembleia-nacional.jpg"},
-                    { title: "Fortaleza de São Miguel e Jesuitas", description: "", id: 2, uuid: "", image: "/images/provincias/luanda/ingombota/fortaleza-de-sao-miguel.jpeg" }
+                    { title: "Palacio Preseidencial", description: "", id: 1, uuid: "", image: `${path}palacio-presidencial.jpg`},
+                    { title: "Assembleia Naiconal", description: "", id: 2, uuid: "", image: `${path}assembleia-nacional.jpg`},
+                    { title: "Fortaleza de São Miguel e Jesuitas", description: "", id: 2, uuid: "", image: `${path}fortaleza-de-sao-miguel.jpeg`}
                 ]
             },
             {
-                id: 1, uuid: "PT-0002", title: "Ilha do Cabo", image: "/images/img2.jpeg",
+                id: 1, uuid: "PT-0002", title: "Ilha do Cabo", image: `${path}ilha-do-cabo.jpg`     ,
                 description: "Uma das áreas mais icônicas de Luanda, conhecida por suas praias e vida noturna.",
                 locations: [
-                    { title: "Praia do Bispo", description: "", id: 0, uuid: "", image: "/images/img2.jpeg"},
-                    { title: "Praia da Lua", description: "", id: 1, uuid: "", image: "/images/img2.jpeg"},
-                    { title: "Ilha de Luanda", description: "", id: 2, uuid: "", image: "/images/img2.jpeg"}
+                    {
+                        title: "Praia do Bispo", 
+                        description: "Uma das praias mais populares, com areia branca e águas calmas.",
+                        id: 0, uuid: "", image: `${path}ilha-do-cabo.jpg`,      
+                    },
+                    {
+                        title: "Praia da Lua",
+                        description: "Famosa por suas formações rochosas e vistas deslumbrantes.",
+                         id: 1, uuid: "", image: `${path}ilha-do-cabo.jpg`,     
+                        },
+                    {
+                        title: "Ilha de Luanda",
+                        description: "Uma pequena ilha com restaurantes e bares, ideal para relaxar.",
+                        id: 2, uuid: "", image: `${path}ilha-do-cabo.jpg`,      
+                    }
                 ]
             },
             {
-                id: 1, uuid: "PT-0002", title: "Museus", image: "/images/img2.jpeg",
+                id: 1, uuid: "PT-0002", title: "Museus", image: `${path}ilha-do-cabo.jpg`       ,
                 description: "Ingombota abriga importantes museus que preservam a história e cultura de Angola.",
                 locations: [
                     { title: "Museu Nacional de Antropologia",description: "Exibe artefatos culturais e históricos de Angola",id: 0,uuid: "",image: ""},
@@ -130,21 +142,21 @@ export const ingombota: Municipality = {
         image: "/images/images.jpeg",
         description: ["Ingombota é composta pro váiras comunas e bairros importantes:"],
         neighborhoods:[
-            { id: 0, uuid: "BRO-0001", title: "Cidade Alta", image: "", description: [] },
-            { id: 0, uuid: "BRO-0002", title: "Cidade Baixa", image: "", description: [] },
-            { id: 0, uuid: "BRO-0003", title: "Chicala", image: "", description: [] },
-            { id: 0, uuid: "BRO-0004", title: "Coqueiros", image: "", description: [] },
-            { id: 0, uuid: "BRO-0005", title: "Bairro Azul", image: "", description: [] },
-            { id: 0, uuid: "BRO-0006", title: "Praia do Bispo", image: "", description: [] },
-            { id: 0, uuid: "BRO-0007", title: "Mutamba", image: "", description: [] },
-            { id: 0, uuid: "BRO-0008", title: "Vila Cotilde", image: "", description: [] }
+            { id: 0, uuid: "BRO-0001", title: "Cidade Alta", image: `${path}cidade-alta.jpg`, description: "" },
+            { id: 0, uuid: "BRO-0002", title: "Cidade Baixa", image: `${path}cidade-baixa.jpeg`, description: "" },
+            { id: 0, uuid: "BRO-0003", title: "Chicala", image: `${path}chicala.webp`, description: "" },
+            { id: 0, uuid: "BRO-0004", title: "Coqueiros", image: `${path}coqueiros.jpeg`, description: "" },
+            { id: 0, uuid: "BRO-0005", title: "Bairro Azul", image: `${path}bairro-azul.webp`, description: "" },
+            { id: 0, uuid: "BRO-0006", title: "Praia do Bispo", image: `${path}praia-do-bispo.jpg`, description: "" },
+            { id: 0, uuid: "BRO-0007", title: "Mutamba", image: `${path}mutamba.jpg`, description: "" },
+            { id: 0, uuid: "BRO-0008", title: "Vila Cotilde", image: `${path}81859f28-84bc-4556-9311-6dfc58fac986.webp`, description: "" }
         ],
         communes:[
-            { id: 0, uuid: "CMN-0001", title: "INgombota (sede)",image: "", description: []},
-            { id: 0, uuid: "CMN-0002", title: "Maculusso",image: "", description: []},
-            { id: 0, uuid: "CMN-0003", title: "Patrice Lumumba",image: "", description: []},
-            { id: 0, uuid: "CMN-0004", title: "Ilha do Cabo",image: "", description: []},
-            { id: 0, uuid: "CMN-0005", title: "Kinanga",image: "", description: []},
+            { id: 0, uuid: "CMN-0001", title: "Ingombota (sede)",image: `${path}81859f28-84bc-4556-9311-6dfc58fac986.webp`, description: ""},
+            { id: 0, uuid: "CMN-0002", title: "Maculusso",image: `${path}81859f28-84bc-4556-9311-6dfc58fac986.webp`, description: ""},
+            { id: 0, uuid: "CMN-0003", title: "Patrice Lumumba",image: `${path}81859f28-84bc-4556-9311-6dfc58fac986.webp`, description: ""},
+            { id: 0, uuid: "CMN-0004", title: "Ilha do Cabo",image: `${path}81859f28-84bc-4556-9311-6dfc58fac986.webp`, description: ""},
+            { id: 0, uuid: "CMN-0005", title: "Kinanga",image: `${path}81859f28-84bc-4556-9311-6dfc58fac986.webp`, description: ""},
         ]
     },
 }

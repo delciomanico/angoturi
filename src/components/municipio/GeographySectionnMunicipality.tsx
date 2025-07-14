@@ -48,7 +48,8 @@ const GeographySectionMunicipality = ({municipality}:{municipality:Municipality}
               className="absolute inset-0 text-white text-left"
             >
               <Image 
-                src={municipality.subdivisionsAndNeighborhoods.neighborhoods[currentSlide]?.image|| '/images/img1.jpeg'} 
+                src={municipality.subdivisionsAndNeighborhoods.neighborhoods[currentSlide]?.image|| '/images/img1.jpeg'}
+                fill
                 alt={municipality.subdivisionsAndNeighborhoods.neighborhoods[currentSlide]?.title}
                 className="w-full h-full object-cover"
               />

@@ -26,6 +26,8 @@ export const Patrimonio = ({ patrimonio }:{patrimonio:HiterageItem}) => {
                             alt={patrimonio.title}
                             fill
                             className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
+                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                            quality={100}
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-70 flex items-end p-4   ">
                             <div className="block text-white text-left">

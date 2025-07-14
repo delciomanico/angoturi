@@ -12,7 +12,7 @@ export const SessaoPatrimonio = ({ hiterages }:{hiterages:HiterageItem[]}) => {
     return (
         <section className="py-16">
             {hiterages.length ? <>
-                <div className="container mx-auto px-4">
+                <div className="container mx-auto">
                     <motion.div
                         initial={{ opacity: 0, y: -20 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -35,13 +35,13 @@ export const SessaoPatrimonio = ({ hiterages }:{hiterages:HiterageItem[]}) => {
                                 {hiterages.map((item, key) => (
                                     <motion.div
                                         key={key}
-                                        className={clsx('p-4 rounded-lg cursor-pointer hover:bg-gray-100 transition-colors',
+                                        className={clsx('py-3 p-4 rounded-lg cursor-pointer hover:bg-gray-100 transition-colors w-full flex items-center justify-center h-20 text-gray-500 ',
                                             patrimonioSelecionado.id === item.id ? 'bg-gray-200' : ''
                                         )}
                                         onClick={() => setPatrimonioSelecionado(item)}
                                         whileHover={{ scale: 1.05 }}
                                     >
-                                        <h3 className="text-lg font-semibold">
+                                        <h3 className="text-md md:text-lg md:font-semibold">
                                             {item.title.length > 30 ? item.title.slice(0, 30) + '...' : item.title}
                                         </h3>
                                     </motion.div>
