@@ -11,12 +11,12 @@ export default function PageProvince(){
     const params = useParams()
     const [provincia, setProvincia]  =  useState<Province| null>(null)
     const [loading, setLoading] = useState(true)
+    const tmpProvince =decodeURIComponent(params.provincia as string);
 
     useEffect(()=>{
-        const tmpProvince = params.provincia;
         setProvincia(provinces.find(p=>tmpProvince == p.title.toLocaleLowerCase()) || null)
         setLoading(false)
-    },[params])
+    },[params, tmpProvince])
 
     return (<>
         {loading?<>
@@ -69,6 +69,7 @@ export default function PageProvince(){
             </div>:<>
                 <div className="text-2xl font-medium flex-col gap-3 flex items-center justify-center">
                     <h1 className="text-6xl font-bold">404</h1>
+                    {}
                     <p>Este recuso não foi encontrado!...</p>
                 </div>
             </>}

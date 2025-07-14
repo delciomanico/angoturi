@@ -18,12 +18,12 @@ export default function PageProvince(){
     const [loading, setLoading] = useState(true)
 
     useEffect(()=>{
-        const tmpProvince = params.provincia;
+        const tmpProvince = decodeURIComponent(params.provincia as string);
         setProvincia(provinces.find(p=>(tmpProvince == p.title.toLowerCase() || tmpProvince == p.title )) || null)
     },[params])
 
     useEffect(()=>{
-        const tmpMunicipio = params.municipio;
+        const tmpMunicipio = decodeURIComponent(params.municipio as string);
         if(provincia)
             setMunipio(provincia.municipalities.find(m=> tmpMunicipio == m.title.toLowerCase() || tmpMunicipio == m.title) || null)
         setLoading(false)
