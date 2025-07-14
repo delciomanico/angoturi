@@ -6,7 +6,7 @@ import { ReactNode } from 'react';
 
 const Layout = ({ children }:{children:ReactNode}) => {
   return (
-    <div className="relative flex flex-col bg-white">
+    <div className="relative flex flex-col bg-white w-screen">
       <Header/>
         <motion.main
           initial={{ opacity: 0 }}

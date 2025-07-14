@@ -4,7 +4,7 @@ import { FaFacebook, FaTwitter, FaInstagram, FaYoutube } from 'react-icons/fa';
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 bg-opacity-80 backdrop-blur-md py-12 px-4 md:px-8 lg:px-16">
+    <footer className="bg-gray-900 bg-opacity-80 backdrop-blur-md py-12 px-4 md:px-8 lg:px-16 w-full text-white">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <motion.div

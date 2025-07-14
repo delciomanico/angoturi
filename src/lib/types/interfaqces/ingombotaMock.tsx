@@ -23,11 +23,18 @@ export const ingombota: Municipality = {
     ],
     economyAndLeisure: [
         {
-            id: 0,
-            uuid: "",
-            title: "",
-            image: "",
-            description: []
+            id: 0, uuid: "ECL-0001", title: "Mercado Municipal", image: `${path}mercado-municipal.jpg`,
+            description: [
+                "Centro comercial vibrante com produtos locais e artesanato",
+                "Ótimo para comprar lembranças e experimentar a culinária local"
+            ]
+        },
+        {
+            id: 0, uuid: "ECL-0002", title: "Praia do Bispo", image: `${path}praia-do-bispo.jpg`,
+            description: [
+                "Praia popular com bares e restaurantes",
+                "Ideal para relaxar e aproveitar o sol"
+            ]
         }
     ],
     touristAttractions: [
@@ -158,11 +165,21 @@ export const ingombota: Municipality = {
             { id: 0, uuid: "BRO-0008", title: "Vila Cotilde", image: `${path}81859f28-84bc-4556-9311-6dfc58fac986.webp`, description: "" }
         ],
         communes:[
-            { id: 0, uuid: "CMN-0001", title: "Ingombota (sede)",image: `${path}81859f28-84bc-4556-9311-6dfc58fac986.webp`, description: ""},
-            { id: 0, uuid: "CMN-0002", title: "Maculusso",image: `${path}81859f28-84bc-4556-9311-6dfc58fac986.webp`, description: ""},
-            { id: 0, uuid: "CMN-0003", title: "Patrice Lumumba",image: `${path}81859f28-84bc-4556-9311-6dfc58fac986.webp`, description: ""},
-            { id: 0, uuid: "CMN-0004", title: "Ilha do Cabo",image: `${path}81859f28-84bc-4556-9311-6dfc58fac986.webp`, description: ""},
-            { id: 0, uuid: "CMN-0005", title: "Kinanga",image: `${path}81859f28-84bc-4556-9311-6dfc58fac986.webp`, description: ""},
+            {
+                id: 0, uuid: "CMN-0001", title: "Ingombota (sede)",image: `${path}81859f28-84bc-4556-9311-6dfc58fac986.webp`, 
+                description: "Comuna sede do município, onde se concentram as principais instituições administrativas e culturais.",},
+            {
+                id: 0, uuid: "CMN-0002", title: "Maculusso",image: `${path}81859f28-84bc-4556-9311-6dfc58fac986.webp`, 
+                description: "Comuna sede do município, onde se concentram as principais instituições administrativas e culturais.",},
+            {
+                id: 0, uuid: "CMN-0003", title: "Patrice Lumumba",image: `${path}81859f28-84bc-4556-9311-6dfc58fac986.webp`, 
+                description: "Comuna sede do município, onde se concentram as principais instituições administrativas e culturais.",},
+            {
+                id: 0, uuid: "CMN-0004", title: "Ilha do Cabo",image: `${path}81859f28-84bc-4556-9311-6dfc58fac986.webp`, 
+                description: "Comuna sede do município, onde se concentram as principais instituições administrativas e culturais.",},
+            {
+                id: 0, uuid: "CMN-0005", title: "Kinanga",image: `${path}81859f28-84bc-4556-9311-6dfc58fac986.webp`, 
+                description: "Comuna sede do município, onde se concentram as principais instituições administrativas e culturais.",},
         ]
     },
 }

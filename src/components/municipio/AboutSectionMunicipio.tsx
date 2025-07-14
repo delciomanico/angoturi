@@ -24,7 +24,7 @@ L.Marker.prototype.options.icon = DefaultIcon;
 const AboutSectioMunipality = ({province, municipality}:UIPropsMunicipality) => {
   return (
     <>
-      <div className="relative z-10 px-4 sm:px-6 lg:px-8 max-w-7xl w-full">
+      <div className="relative z-10 sm:px-6 lg:px-8 max-w-7xl w-full">
           <div className="text-center">
             <motion.div
               initial={{ opacity: 0, y: -20 }}
@@ -49,6 +49,61 @@ const AboutSectioMunipality = ({province, municipality}:UIPropsMunicipality) => 
             </motion.h1>
             <motion.div className='grid gap-2'>
               {municipality.description.map((item,key)=>(<motion.p key={key} className='font-bold'>{item}</motion.p>))}
+            </motion.div>
+
+            <motion.div className="mt-8">
+              <motion.h2
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.6 }}
+                className="text-lg sm:text-xl md:text-2xl font-semibold text-gray-700"
+              >
+              </motion.h2>
+              {municipality.nameOrigins.map((item, key) => (
+                <motion.div
+                  key={key}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.8 + key * 0.2 }}
+                  className="text-gray-600 mt-2"
+                >
+                  <div className="">
+                    <h2 className="text-3xl font-semibold text-stone-800">{item.title}:</h2>
+                    <span className="ml-2">{item.description}</span>
+                  </div>
+
+                  {item.interpretations.map((interpretation, index) => (
+                    <p key={index} className="text-gray-500 italic ml-2">
+                      {typeof interpretation === 'string'
+                        ? interpretation
+                        : typeof interpretation === 'object' && interpretation !== null
+                          ? `${interpretation.title}${interpretation.description ? `: ${interpretation.description}` : ''}`
+                          : ''}
+                    </p>
+                  ))}
+                </motion.div>
+                
+              ))}
+              
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              className="mt-8"
+            >
+              <h2 className="text-3xl font-semibold text-stone-800 mb-4">Características Gerais</h2>
+              <div className="flex flex-col gap-4">
+                {municipality.generalCharacteristics.map((item, key) => (
+                  <div key={key} className="px-4 py-2 bg-black bg-opacity-50 rounded-full text-sm font-medium mr-2 mb-2 text-white text-wrap flex max-w-full flex-wrap w-max">
+                    <span className=''>
+                      {item.title}:
+                    </span>
+                    {item.description ? <span className="text-xs text-gray-300 ml-2">({item.description})</span>: ''}
+                  </div>
+                ))}
+              </div>
             </motion.div>
           </div>
         </div>
