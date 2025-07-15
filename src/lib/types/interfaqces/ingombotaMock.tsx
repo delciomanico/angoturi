@@ -82,7 +82,7 @@ export const ingombota: Municipality = {
                 ]
             },
             {
-                id: 1, uuid: "PT-0002", title: "Ilha do Cabo", image: `${path}praia-do-bispo.jpg`     ,
+                id: 2, uuid: "PT-0002", title: "Ilha do Cabo", image: `${path}praia-do-bispo.jpg`     ,
                 description: "Uma das áreas mais icônicas de Luanda, conhecida por suas praias e vida noturna.",
                 locations: [
                     {
@@ -103,7 +103,7 @@ export const ingombota: Municipality = {
                 ]
             },
             {
-                id: 1, uuid: "PT-0002", title: "Museus", image: `${path}praia-do-bispo.jpg`       ,
+                id: 3, uuid: "PT-0003", title: "Museus", image: `${path}praia-do-bispo.jpg`       ,
                 description: "Ingombota abriga importantes museus que preservam a história e cultura de Angola.",
                 locations: [
                     {
@@ -123,19 +123,19 @@ export const ingombota: Municipality = {
                         title: "Festivais Anuais", description: "Ingombota é palco de diversos festivais culturais, como o Festival Internacional de Luanda e o Festival de Dança Tradicional.",
                         id: 0,
                         uuid: "",
-                        image: "",
+                        image: `${path}praia-do-bispo.jpg`  ,
                     },
                     {
                         title: "Arte Digital", description: "A cultura digital tem crescido, com artistas locais explorando novas mídias e tecnologias.",
                         id: 0,
                         uuid: "",
-                        image: "",
+                        image: `${path}praia-do-bispo.jpg`  ,
                     },
                     {
                         title: "Danças Tradicionais", description: "As danças tradicionais angolanas, como o Semba e a Kizomba, são parte importante da identidade cultural local.",
                         id: 0,
                         uuid: "",
-                        image: "",
+                        image: `${path}praia-do-bispo.jpg`  ,
                     }
         ],
     },

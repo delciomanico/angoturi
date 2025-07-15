@@ -6,10 +6,10 @@ import { motion } from 'framer-motion';
 const Layout = ({ children }:{children: ReactNode}) => {
   return (
     <>
-        <div className="mt-24 min-h-screen flex flex-col">
+        <div className="mt-24 min-h-screen flex flex-col md:min-w-[800px] lg:min-w-[1024px]">
           <div className="absolute inset-0 z-0">
         <div className="absolute inset-0"></div>
-        <div className="absolute inset-0 bg-[url('/images/iamge1.jpg')] bg-cover bg-center opacity-30"></div>
+        <div className="absolute inset-0 bg-[url('/images/img1.jpg')] bg-cover bg-center opacity-30"></div>
         
         {/* Elementos decorativos futuristas */}
         <motion.div 
