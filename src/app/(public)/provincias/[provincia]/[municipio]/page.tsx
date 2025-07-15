@@ -1,7 +1,6 @@
 // app/[provincia]/[municipio]/page.tsx
 'use client';
 import { OfficialHeader } from '@/components/municipio/OfficialHeader';
-import { CulturalCard } from '@/components/municipio/CulturalCard';
 import { OfficialHeritageSection } from '@/components/municipio/OfficialHeritageSection';
 import { NeighborhoodMap } from '@/components/municipio/NeighborhoodMap';
 import { useEffect, useState } from 'react';
@@ -13,11 +12,9 @@ import { CulturalCarousel } from '@/components/municipio/CulturalCarousel';
 export default function PageMunicipio() {
 
     const params = useParams();
-    const [selectedNeighborhood, setSelectedNeighborhood] = useState(0);
     const [activeNeighborhood, setActiveNeighborhood] = useState(0);
     const [activeHeritage, setActiveHeritage] = useState(0);
     const [activeHeritageItem, setActiveHeritageItem] = useState(0);
-    const [selectedHeritage, setSelectedHeritage] = useState(0);
     const [provincia, setProvincia] = useState<Province | null>(null)
     const [municipality, setMunipio] = useState<Municipality | null>(null)
     const [loading, setLoading] = useState(true)

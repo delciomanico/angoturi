@@ -3,8 +3,9 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
+import { ItemComposite } from '@/lib/types/interfaqces';
 
-export const CulturalCarousel = ({ cultures = [] }: { cultures?: any[] }) => {
+export const CulturalCarousel = ({ cultures = [] }: { cultures?: ItemComposite[] }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isClient, setIsClient] = useState(false);
 
@@ -93,9 +94,9 @@ export const CulturalCarousel = ({ cultures = [] }: { cultures?: any[] }) => {
                 {currentCulture.description || "Descrição não disponível."}
               </p>
               
-              {Array.isArray(currentCulture.tags) && currentCulture.tags.length > 0 && (
+              {Array.isArray(currentCulture.description) && currentCulture.description.length > 0 && (
                 <div className="flex flex-wrap gap-2">
-                  {currentCulture.tags.map((tag: string, i: number) => (
+                  {currentCulture.description.map((tag: string, i: number) => (
                     <span 
                       key={i} 
                       className="px-3 py-1 bg-orange-100 text-orange-600 rounded-full text-xs"

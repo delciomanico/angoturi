@@ -1,9 +1,10 @@
 // components/municipio/CulturalCard.tsx
 'use client';
+import { ItemComposite } from '@/lib/types/interfaqces';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 
-export const CulturalCard = ({ item }: { item: any }) => (
+export const CulturalCard = ({ item }: { item: ItemComposite }) => (
   <motion.div
     initial={{ opacity: 0, y: 20 }}
     whileInView={{ opacity: 1, y: 0 }}

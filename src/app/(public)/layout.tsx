@@ -4,8 +4,11 @@ import Header from '@/components/Header';
 import { motion } from 'framer-motion';
 import { ReactNode } from 'react';
 
+import { MotionConfig } from 'framer-motion';
+    
 const Layout = ({ children }:{children:ReactNode}) => {
-  return (
+  return (<MotionConfig reducedMotion="user">
+
     <div className="relative flex flex-col bg-white w-screen">
       <Header/>
         <motion.main
@@ -77,6 +80,7 @@ const Layout = ({ children }:{children:ReactNode}) => {
         </motion.main>
       <Footer />
     </div>
+  </MotionConfig>
   );
 };
 

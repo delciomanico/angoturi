@@ -1,5 +1,6 @@
 // components/municipio/NeighborhoodMap.tsx
 'use client';
+import { ItemComposite } from '@/lib/types/interfaqces';
 import { AnimatePresence, motion } from 'framer-motion';
 import Image from 'next/image';
 
@@ -8,7 +9,7 @@ export const NeighborhoodMap = ({
   activeIndex = 0,
   onSelect
 }: {
-  neighborhoods?: any[],
+  neighborhoods?: ItemComposite[],
   activeIndex?: number,
   onSelect?: (index: number) => void
 }) => {

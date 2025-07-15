@@ -1,8 +1,9 @@
 // components/municipio/OfficialHeritageSection.tsx
 'use client';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
+import { HiterageItem, ItemComposite } from '@/lib/types/interfaqces';
 
 export const OfficialHeritageSection = ({
   heritages = [],
@@ -11,9 +12,9 @@ export const OfficialHeritageSection = ({
   onSelectHeritage = () => {},
   onSelectItem = () => {}
 }: {
-  heritages?: any[],
-  activeHeritage?: number,
-  activeItem?: number,
+  heritages: HiterageItem[],
+  activeHeritage: number,
+  activeItem: number,
   onSelectHeritage?: (index: number) => void,
   onSelectItem?: (index: number) => void
 }) => {
@@ -22,13 +23,14 @@ export const OfficialHeritageSection = ({
   const safeHeritageIndex = hasHeritages 
     ? Math.min(Math.max(0, activeHeritage), heritages.length - 1)
     : 0;
-  const currentHeritage = hasHeritages ? heritages[safeHeritageIndex] : null;
+  const currentHeritage = heritages[safeHeritageIndex];
   
   const hasLocations = currentHeritage?.locations?.length > 0;
   const safeItemIndex = hasLocations
     ? Math.min(Math.max(0, activeItem), currentHeritage.locations.length - 1)
     : 0;
   const currentItem = hasLocations ? currentHeritage.locations[safeItemIndex] : null;
+
 
   // Atualiza índices inválidos
   useEffect(() => {
@@ -38,7 +40,16 @@ export const OfficialHeritageSection = ({
     if (hasLocations && activeItem !== safeItemIndex) {
       onSelectItem(safeItemIndex);
     }
-  }, [activeHeritage, activeItem]);
+  }, [
+    hasHeritages,
+    hasLocations,
+    safeHeritageIndex,
+    safeItemIndex,
+    activeHeritage,
+    activeItem,
+    onSelectHeritage,
+    onSelectItem
+  ]);
 
   // Fallback para quando não há patrimônios
   if (!hasHeritages) {
@@ -114,7 +125,7 @@ export const OfficialHeritageSection = ({
         <div className="grid md:grid-cols-4">
           {/* Lista de locais */}
           <div className="md:border-r border-gray-100">
-            {currentHeritage.locations.map((location: any, index: number) => (
+            {currentHeritage.locations.map((location: ItemComposite, index: number) => (
               <motion.button
                 key={location.uuid || index}
                 onClick={() => onSelectItem(index)}
