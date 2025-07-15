@@ -79,17 +79,15 @@ const Header = () => {
                   className="relative"
                   onClick={() => setActiveLink(link.href.substring(1))}
                 >
-                  <span className={`text-sm font-medium transition-colors uppercase ${
-                    activeLink === link.href.substring(1) 
-                      ? 'text-yellow-400' 
-                      : isScrolled ?'text-orange hover:text-yellow-300 ': 'text-orange hover:text-yellow-300 '
-                  }`}>
+                  <span className={clsx(`text-sm transition-colors uppercase font-bold`,
+                    activeLink === link.href.substring(1) ? 'text-yellow-400' : isScrolled ? 'text-orange-500 hover:text-yellow-300 ': 'text-orange-500 hover:text-yellow-300 ')}
+                  >
                     {link.name}
                   </span>
                   {activeLink === link.href.substring(1) && (
                     <motion.span
                       layoutId="activeLink"
-                      className="absolute left-0 -bottom-1 w-full h-0.5 bg-black"
+                      className={clsx("absolute left-0 -bottom-1 w-full h-0.5")}
                       transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
                     />
                   )}
@@ -100,7 +98,7 @@ const Header = () => {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-4 py-2 bg-gradient-to-r from-yellow-500 via-orange-500 to-red-500 text-white text-sm font-medium rounded-full shadow-lg hover:shadow-xl transition-all"
+              className={clsx("px-4 py-2 bg-gradient-to-r from-yellow-500 via-orange-500 to-red-500 text-white text-sm font-medium rounded-full shadow-lg hover:shadow-xl transition-all")}
             >
               Contacte-nos
             </motion.button>

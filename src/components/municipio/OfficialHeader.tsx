@@ -50,7 +50,7 @@ export const OfficialHeader = ({ province, municipality }: UIPropsMunicipality) 
                 className="mt-8 grid grid-cols-2 md:grid-cols-3 gap-4 justify-center max-w-5xl mx-auto"
             >
                 {municipality.generalCharacteristics.slice(0, 4).map((item, index) => (
-                    <div key={index} className="bg-orange-50 p-4 rounded-lg border border-orange-100">
+                    <div key={index} className="bg-orange-50 p-4 rounded-lg border border-orange-100 last-of-type:col-span-2 md:last-of-type:col-span-1 ">
                         <p className="text-xs font-semibold text-orange-600">{item.title}</p>
                         <p className="text-gray-800 font-medium">
                             {Array.isArray(item.description) ? item.description[0] : item.description}
