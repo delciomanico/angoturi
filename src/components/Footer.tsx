@@ -28,7 +28,7 @@ const Footer = () => {
             },
             {
               title: "Contato",
-              links: ["info@angoturi.ao", "+244 123 456 789", "Mapa do Site"]
+              links: ["info@angoturi.ao", "+244 926 283 343", "Mapa do Site"]
             },
             {
               title: "Legal",
