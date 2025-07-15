@@ -26,23 +26,25 @@ export default function PageProvince(){
         </>:<>
             {provincia?<div className="mt-5">
                 <motion.div>
-                    <motion.div>
+                    <motion.div
+                        className='py-5'
+                    >
                         <motion.h1
                             initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8, delay: 0.4 }}
                             className="
-                                text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight mb-6 px-8 py-4 text-black font-semibold rounded-full transition-all flex items-center
-                                "
-                                
+                                text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight mb-6 px-8 py-4 text-black font-semibold rounded-full transition-all flex items-center justify-center"
                         >
-                            {provincia.title}
+                            <span className="bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-orange-500">
+                                {provincia.title}
+                            </span>
                         </motion.h1>
                         <motion.p
-                            initial={{ opacity: 0, y: 30 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, delay: 0.4 }}
-                            className="text-lg sm:text-xl md:text-1xl lg:text-2xl font-bold leading-tight mb-6"
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ duration: 0.6, delay: 0.3 }}
+                            className="text-xl font-bold text-gray-600 max-w-3xl mx-auto mb-5"
                         >
                             {provincia.description}
                         </motion.p>
@@ -51,7 +53,7 @@ export default function PageProvince(){
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.4 }}
-                        className="flex flex-wrap gap-2 justify-center"
+                        className="flex flex-wrap gap-2 justify-center md:gap-4 max-w-6xl"
                     >
                         {provincia.municipalities.map((item, key)=>(
                             <Link key={key} href={`/provincias/${provincia.title.toLowerCase()}/${item.title.toLowerCase()}`}>
